@@ -1,0 +1,51 @@
+<div class="background">
+  <div class="form">
+    <div class="form-image">
+      <div class="overlay"></div>
+      <div class="logo">
+        <img src="/assets/images/trinity-logo-mod.png" alt="">
+        <h2 [routerLink]="['/']">
+          Quality is our specialty
+        </h2>
+      </div>
+    </div>
+
+
+    <form class="form-reactive" [formGroup]="loginForm" action="">
+      <h1>Login Form</h1>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input type="email" formControlName="email" name="email" matInput placeholder="Placeholder">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-hint>Enter a valid email</mat-hint>
+        <mat-error *ngIf=" loginForm.get('email')?.touched ||submitted">
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Please Enter your Email Address</mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+            Invalid Email Address</mat-error>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" formControlName="password" name="password" matInput placeholder="Placeholder">
+        <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+        <mat-hint>Enter Your Password</mat-hint>
+
+        <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched || submitted">
+          Please Enter your Password
+        </mat-error>
+
+
+      </mat-form-field>
+      <div class="submit-btn">
+        <button mat-button color="primary">Login</button>
+      </div>
+      <div class="account">
+        <span>Do not have an account?<a [routerLink]="['/register']">Sign in</a></span>
+      </div>
+
+
+
+    </form>
+  </div>
+</div>
