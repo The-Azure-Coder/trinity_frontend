@@ -15,7 +15,7 @@
       <h1>Login Form</h1>
       <mat-form-field appearance="outline">
         <mat-label>Email</mat-label>
-        <input type="email" formControlName="email" name="email" matInput placeholder="Placeholder">
+        <input type="email" formControlName="email" name="email" matInput placeholder="Placeholder" #mail>
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <mat-hint>Enter a valid email</mat-hint>
         <mat-error *ngIf=" loginForm.get('email')?.touched ||submitted">
@@ -27,18 +27,23 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input type="password" formControlName="password" name="password" matInput placeholder="Placeholder">
+        <input type="password" formControlName="password" name="password" matInput placeholder="Placeholder" #pword>
         <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
         <mat-hint>Enter Your Password</mat-hint>
 
         <mat-error *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched || submitted">
           Please Enter your Password
         </mat-error>
+        <input type="hidden" formControlName="role" #Role>
 
 
       </mat-form-field>
       <div class="submit-btn">
-        <button mat-button color="primary">Login</button>
+        <button mat-button color="primary" (click)="onSubmit({email:mail.value.trim(), password : pword.value.trim(), roles: Role.value});
+        mail.value = '';
+        pword.value = '';
+        Role.value = ''
+        ">Login</button>
       </div>
       <div class="account">
         <span>Do not have an account?<a [routerLink]="['/register']">Sign in</a></span>
