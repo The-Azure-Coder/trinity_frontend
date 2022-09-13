@@ -1,0 +1,163 @@
+.background {
+    overflow: hidden;
+    height: 100%;
+    // background-image: url('/assets/images/home.jpg');
+    // background-repeat: no-repeat;
+    // background-size: cover;
+   
+}
+
+.form-background{
+  
+    height: 40rem;
+
+}
+
+.form {
+    // border-radius: .6rem;
+    border: 1px solid rgb(238, 236, 236);
+    width: 10rem;
+    height: 32rem;
+    display: flex;
+    margin: 5rem auto;
+    width: fit-content;
+    box-shadow: 10px 10px 17px -1px rgba(0, 0, 0, 0.028);
+    -webkit-box-shadow: 10px 10px 17px -1px rgba(0, 0, 0, 0.028);
+    -moz-box-shadow: 10px 10px 17px -1px rgba(0, 0, 0, 0.028);
+    -moz-box-shadow: 10px 10px 0px 0px rgbargba(0, 0, 0, 0.028);
+
+    &-image {
+        position: relative;
+        overflow: hidden;
+        width: 25rem;
+        height: 32rem;
+        background-image: url('/assets/images/reg-img.jpg');
+        overflow: hidden;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+
+
+
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.434);
+            /* Black see-through */
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+
+
+    }
+    .logo{
+        position: absolute;
+        color: #fff;
+        padding-top: 6rem;
+        padding-left: 8rem;
+
+        h2{
+            text-align: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.4rem;
+            position: relative;
+            left: -2rem;
+            cursor: pointer;
+            text-align: center;
+        }
+     
+
+    }
+
+
+
+    .heading {
+        position: absolute;
+        color: #fff;
+       
+      
+
+        h2 {
+
+          
+        }
+
+        p {
+            position: relative;
+            text-align: center;
+            font-size: 2.2rem;
+            top: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+    }
+
+
+
+    &-reactive {
+        padding: 25px;
+        width: 24rem;
+        background-color: #fff;
+
+        .error-msg {
+            position: absolute;
+            top: 3rem;
+            left: .6rem;
+            color: red;
+        }
+
+        h1 {
+           margin-bottom: 2rem;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: #042f8d;
+            font-size: 25px;
+        }
+
+        .mat-form-field {
+            width: 22rem;
+            margin-bottom: .6rem;
+            font-size: 15px;
+        }
+
+
+        .submit-btn {
+        margin-top: .4rem;
+           
+
+            button {
+                background-color: #66C0FF;
+                outline: none;
+                border: none;
+                width: 22rem;
+                height: 3rem;
+                color: #fff;
+                margin-bottom: 1.1rem;
+
+            }
+        }
+
+        .account {
+            margin-left: 4rem;
+           
+
+            span {
+                color: #777;
+                font-size: 12px;
+
+                a {
+                    margin-left: 4rem;
+                    text-decoration: none;
+                    color: #0c54ef;
+                }
+            }
+
+        }
+
+
+    }
+}
