@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Validation from 'src/app/directives/custom.validator';
-import { UserService } from 'src/app/Services/user.service';
+import { UserService } from 'src/app/services/user.service';
 import { Users } from 'src/app/Models/Users';
 
 @Component({
@@ -14,7 +14,7 @@ import { Users } from 'src/app/Models/Users';
 export class RegisterComponent implements OnInit {
 
   submitted = false;
-  users:Users[] = [];
+  users: Users[] = [];
   emailMatch = false;
 
   registerForm = new FormGroup({
@@ -27,20 +27,20 @@ export class RegisterComponent implements OnInit {
   )
   constructor(private userService: UserService, private router: Router) { }
 
-  register(body:object) {
-        if(this.registerForm?.valid){
-            this.userService.createUser(body).subscribe({
-             next:()=>{
-               alert('Registration Successful')
-             },
-             error:(err)=>{
-               console.log(err);        
-             }
-            })
-           }else{
-            alert('This form is invalid')
-           }
-        }        
+  register(body: object) {
+    if (this.registerForm?.valid) {
+      this.userService.createUser(body).subscribe({
+        next: () => {
+          alert('Registration Successful')
+        },
+        error: (err) => {
+          console.log(err);
+        }
+      })
+    } else {
+      alert('This form is invalid')
+    }
+  }
 
   ngOnInit(): void {
   }
