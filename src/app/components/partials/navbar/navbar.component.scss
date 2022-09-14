@@ -1,0 +1,205 @@
+.nav{
+
+
+.nav-general{
+    height: 7.5rem;
+   
+    background-color: #356A8F;
+    display: flex;
+    align-items: center;
+
+    img{
+        width: 115px;
+        margin-left: .8rem;
+    }
+
+    .nav-content{
+        margin-left: 3rem;
+
+        a{
+            color: #fff;
+            margin-right: 2rem;
+        }
+    
+    }
+
+    .nav-register{
+        margin-left: 30%;
+      
+        span{
+            color: #fff;
+            margin-right: .4rem;
+            cursor: pointer;
+
+
+            img{
+                width: 1.5rem;
+                position: relative;
+                top: 2px;
+                margin-right: .4rem;
+                
+            }
+        }
+    }
+
+}
+
+.moto {
+    margin-top: 2rem;
+    margin-left: 4rem;
+    display: flex;
+    background-color: #fff;
+    &-heading {
+        h1 {
+            font-family: 'Italianno', cursive;
+            font-size: 2.5rem;
+            margin-top: -1.1rem;
+        }
+
+        h2 {
+            font-family: 'Italianno', cursive;
+            font-size: 2.5rem;
+            margin-top: 2px;
+            margin-left: 2rem;
+        }
+    }
+
+    .location {
+        display: flex;
+        margin-left: 6rem;
+
+        .location-image {
+
+
+            img {
+                width: 60px;
+
+            }
+        }
+
+        .location-content {
+            margin-left: .9rem;
+
+            span {
+                display: block;
+                margin-top: .2rem;
+                margin-bottom: .2rem;
+            }
+
+            .bor {
+                border-top: 1px dotted black;
+                padding-top: 5px;
+            }
+        }
+    }
+
+    .sign {
+        display: flex;
+        margin-left: 6rem;
+
+        .sign-image {
+            img {
+                width: 50px;
+            }
+        }
+
+        .sign-content {
+            margin-left: .9rem;
+
+            span {
+                display: block;
+                margin-top: .2rem;
+                margin-bottom: .2rem;
+                cursor: pointer;
+            }
+
+            .bor {
+                border-top: 1px dotted black;
+                padding-top: 5px;
+            }
+        }
+    }
+
+    .contact {
+        display: flex;
+        margin-left: 6rem;
+
+        .contact-image {
+            img {
+                width: 50px;
+            }
+        }
+
+        .contact-content {
+            margin-left: .9rem;
+
+            span {
+                display: block;
+                margin-top: .2rem;
+                margin-bottom: .2rem;
+            }
+
+
+            .bor {
+                border-top: 1px dotted black;
+                padding-top: 5px;
+            }
+        }
+
+
+    }
+
+}
+
+}
+
+::ng-deep.register-menu {
+    margin-top: 1rem;
+    margin-left: 8rem;
+    height: 15.5rem;
+    width: 16rem;
+    padding: 20px;
+
+
+    .register-details {
+
+        h2 {
+            color:  #0377ca;
+            font-size: 400;
+
+        }
+
+        a {
+            color:  #0792f6;
+            text-decoration: none;
+            display: block;
+            margin-bottom: .6rem;
+        }
+
+    }
+
+    .register-btn {
+
+        button {
+            background-color: #0792f6;
+            color: #fff;
+            margin-right: .8rem;
+            border: none;
+            padding: 8px;
+            border-radius: .2rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #034ae3;
+
+            mat-icon {
+                position: relative;
+                top: 8px;
+                right: 5px;
+            }
+
+        }
+    }
+
+}
