@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from '../Models/user';
+import { Users } from '../models/Users';
 import { environment } from 'src/environments/environment';
-import { Observable, of, catchError, map, tap } from 'rxjs';
+import { Observable, of, catchError, tap } from 'rxjs';
+import { Users } from '../models/Users';
 
 @Injectable({
   providedIn: 'root'
@@ -13,15 +14,15 @@ export class AuthService {
 
   constructor(private auth: HttpClient) { }
 
-  isLoggedIn(){
+  isLoggedIn() {
     return !!localStorage.getItem('token')
   }
 
-  loginUser(data:object):Observable<Users>{
+  loginUser(data: object): Observable<Users> {
     return this.auth.post<Users>(`${this.API_URL}`, data).pipe(
-      tap( userLoggedIn => console.log(`${userLoggedIn}`)),
-      catchError( error => of())
+      tap(userLoggedIn => console.log(`${userLoggedIn}`)),
+      catchError(error => of())
     );
   }
-  
+
 }

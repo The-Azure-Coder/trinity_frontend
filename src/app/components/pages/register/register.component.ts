@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmailValidator, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Validation from 'src/app/directives/custom.validator';
-import { UserService } from 'src/app/Services/user.service';
-import { Users } from 'src/app/Models/user';
+import { UserService } from 'src/app/services/user.service';
+import { Users } from 'src/app/models/Users';
 
 @Component({
   selector: 'app-register',
