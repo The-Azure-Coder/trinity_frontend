@@ -34,8 +34,9 @@ export class UserService {
     );
   }
 
-  updateUser(id: string, body: object): Observable<Users> {
-    return this.http.put<Users>(`${this.API_URL}/${id}`, body).pipe(
+   
+  updateUser(id: string, body:object): Observable<Users>{
+    return this.http.patch<Users>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
       catchError(error => of(new Users())),
     );
