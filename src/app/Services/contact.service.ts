@@ -37,7 +37,7 @@ export class ContactService {
   }
    
   updatemessage(id: string, body:object): Observable<Contact>{
-    return this.http.put<Contact>(`${this.API_URL}/${id}`, body).pipe(
+    return this.http.patch<Contact>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
       catchError(error => of(new Contact())),
     );
