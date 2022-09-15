@@ -4,7 +4,7 @@ import { EmailValidator, FormControl, FormGroup, Validators } from '@angular/for
 import { Router } from '@angular/router';
 import Validation from 'src/app/directives/custom.validator';
 import { UserService } from 'src/app/services/user.service';
-import { Users } from 'src/app/models/Users';
+import { Users } from 'src/app/models/user';
 
 @Component({
   selector: 'app-register',

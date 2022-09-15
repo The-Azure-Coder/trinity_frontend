@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Users } from '../models/Users';
+import { Users } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { Observable, of, catchError, map, tap } from 'rxjs';
 
@@ -34,8 +34,8 @@ export class UserService {
     );
   }
 
-   
-  updateUser(id: string, body:object): Observable<Users>{
+
+  updateUser(id: string, body: object): Observable<Users> {
     return this.http.patch<Users>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
       catchError(error => of(new Users())),
