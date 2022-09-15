@@ -8,10 +8,15 @@
     display: flex;
     align-items: center;
 
-    img{
-        width: 115px;
-        margin-left: .8rem;
+    .logo{
+        img{
+            width: 125px;
+            margin-left: 4rem;
+        }
+
     }
+
+    
 
     .nav-content{
         margin-left: 3rem;
@@ -24,12 +29,12 @@
     }
 
     .nav-register{
-        margin-left: 30%;
+        margin-left: 20%;
       
         span{
             color: #fff;
-            margin-right: .4rem;
             cursor: pointer;
+            margin-right: 1.5rem;
 
 
             img{
@@ -59,7 +64,7 @@
         h2 {
             font-family: 'Italianno', cursive;
             font-size: 2.5rem;
-            margin-top: 2px;
+            margin-top: -8px;
             margin-left: 2rem;
         }
     }
