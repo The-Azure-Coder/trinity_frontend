@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiResponse } from 'src/app/models/api-response';
 import { Contact } from 'src/app/models/contact-us';
-import { ContactService } from 'src/app/Services/contact.service';
+import { ContactService } from 'src/app/services/contact.service';
 
 @Component({
   selector: 'app-home',
