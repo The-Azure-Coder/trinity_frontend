@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Contact } from '../models/contact-us';
 import { environment } from 'src/environments/environment';
-import { Observable, of, catchError, map, tap } from 'rxjs';
+import { Observable, of, catchError, tap } from 'rxjs';
 import { ApiResponse } from '../models/api-response';
 
 @Injectable({
@@ -13,24 +13,24 @@ export class ContactService {
 
   constructor(private http: HttpClient) {}
 
-  createMessage(data: object): Observable<ApiResponse<Contact>> {
-    return this.http.post<ApiResponse<Contact>>(`${this.API_URL}`, data).pipe(
-      tap((newMessage: any) => console.log(`${newMessage}`)),
+  createMessage(data: Contact): Observable<ApiResponse<Contact>> {
+    return this.http.post<ApiResponse<Contact>>(this.API_URL, data).pipe(
+      tap((newMessage: any) => console.log(newMessage)),
       catchError((error) => of())
     );
   }
 
   getMessages(): Observable<ApiResponse<Contact[]>> {
     return this.http.get<ApiResponse<Contact>>(this.API_URL).pipe(
-      tap((allMessages: any) => console.log(`${allMessages}`)),
-      catchError((error) => of([]))
+      tap((allMessages: any) => console.log(allMessages)),
+      catchError((error) => of())
     );
   }
 
   getMessageById(id: string): Observable<ApiResponse<Contact>> {
     return this.http.get<ApiResponse<Contact>>(`${this.API_URL}/${id}`).pipe(
-      tap((selectedmessage: any) => console.log(`${selectedmessage}`)),
-      catchError((error) => of(new Contact()))
+      tap((selectedmessage: any) => console.log(selectedmessage)),
+      catchError((error) => of())
     );
   }
 
@@ -38,14 +38,14 @@ export class ContactService {
     return this.http
       .patch<ApiResponse<Contact>>(`${this.API_URL}/${id}`, body)
       .pipe(
-        tap((updatedRecord: any) => console.log(`${updatedRecord}`)),
-        catchError((error) => of(new Contact()))
+        tap((updatedRecord: any) => console.log(updatedRecord)),
+        catchError((error) => of())
       );
   }
 
   deleteMessage(id: string): Observable<ApiResponse<Contact>> {
     return this.http.delete<ApiResponse<Contact>>(`${this.API_URL}/${id}`).pipe(
-      tap((deletedMessage: any) => console.log(`${deletedMessage}`)),
+      tap((deletedMessage: any) => console.log(deletedMessage)),
       catchError((error) => of())
     );
   }
