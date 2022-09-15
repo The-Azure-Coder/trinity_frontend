@@ -15,6 +15,7 @@ import { NavbarComponent } from './components/partials/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { FooterComponent } from './components/partials/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
