@@ -15,6 +15,8 @@ import { Services } from 'src/app/models/service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  services: Services[] = []
+  products: Products[] = []
   contactForm = new FormGroup({
     firstName: new FormControl('', [Validators.required]),
     lastName: new FormControl('', []),
@@ -28,19 +30,6 @@ export class HomeComponent implements OnInit {
     message: new FormControl('', [Validators.required]),
   });
 
-  /**
-   * Handles the submission of the contact us form
-   * @param formData The information captured in the form.
-   */
-  onContactFormSubmit<T extends Contact>(formData: T): void {
-    let _formData = formData;
-    _formData.phoneNumber = parseInt(
-      _formData.phoneNumber.toString().replace(/[^0-9_?]+/g, '')
-    );
-
-  services: Services[] = []
-  products: Products[] = []
-
   constructor(private plumServices: PlumbingServicesService, private productService: ProductService, private contactService: ContactService) { }
 
   getPlumbingServices() {
@@ -51,9 +40,19 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
-    this.getPlumbingServices()
-  }
+  /**
+   * Handles the submission of the contact us form
+   * @param formData The information captured in the form.
+   */
+  onContactFormSubmit<T extends Contact>(formData: T): void {
+    let _formData = formData;
+    _formData.phoneNumber = parseInt(
+      _formData.phoneNumber.toString().replace(/[^0-9_?]+/g, '')
+    );
+
+
+
+
 
     this.contactService.createMessage(_formData).subscribe({
       next: (resp: ApiResponse<Contact>) => {
@@ -73,4 +72,9 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+  ngOnInit(): void {
+    this.getPlumbingServices()
+  }
 }
+
+
