@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Users } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { Observable, of, catchError, tap } from 'rxjs';
+import { ApiResponse } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -17,10 +18,10 @@ export class AuthService {
     return !!localStorage.getItem('token')
   }
 
-  loginUser(data: object): Observable<Users> {
-    return this.auth.post<Users>(`${this.API_URL}`, data).pipe(
+  loginUser(data: object): Observable<ApiResponse<Users>> {
+    return this.auth.post<ApiResponse<Users>>(`${this.API_URL}`, data).pipe(
       tap(userLoggedIn => console.log(`${userLoggedIn}`)),
-      catchError(error => of())
+      catchError(_error => of())
     );
   }
 
