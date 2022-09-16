@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
 
   getPlumbingServices() {
     this.plumServices.getServices().subscribe(plumbingService => {
-      this.services = plumbingService
+      this.services = plumbingService.data
       console.log(this.services);
 
     })
