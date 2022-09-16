@@ -11,7 +11,7 @@ import { ApiResponse } from '../models/api-response';
 export class ContactService {
   API_URL = environment.BASE_URL + '/contact-us';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   createMessage(data: object): Observable<ApiResponse<Contact>> {
     return this.http.post<ApiResponse<Contact>>(`${this.API_URL}`, data).pipe(
@@ -23,30 +23,29 @@ export class ContactService {
   getMessages(): Observable<ApiResponse<Contact[]>> {
     return this.http.get<ApiResponse<Contact>>(this.API_URL).pipe(
       tap((allMessages: any) => console.log(`${allMessages}`)),
-      catchError((error) => of([]))
+      catchError((_error) => of(<ApiResponse<Contact[]>>{}))
     );
   }
 
   getMessageById(id: string): Observable<ApiResponse<Contact>> {
     return this.http.get<ApiResponse<Contact>>(`${this.API_URL}/${id}`).pipe(
       tap((selectedmessage: any) => console.log(`${selectedmessage}`)),
-      catchError((error) => of(new Contact()))
+      catchError((error) => of(<ApiResponse<Contact>>{}))
     );
   }
 
   updatemessage(id: string, body: object): Observable<ApiResponse<Contact>> {
-    return this.http
-      .patch<ApiResponse<Contact>>(`${this.API_URL}/${id}`, body)
+    return this.http.patch<ApiResponse<Contact>>(`${this.API_URL}/${id}`, body)
       .pipe(
         tap((updatedRecord: any) => console.log(`${updatedRecord}`)),
-        catchError((error) => of(new Contact()))
+        catchError((error) => of(<ApiResponse<Contact>>{}))
       );
   }
 
   deleteMessage(id: string): Observable<ApiResponse<Contact>> {
     return this.http.delete<ApiResponse<Contact>>(`${this.API_URL}/${id}`).pipe(
       tap((deletedMessage: any) => console.log(`${deletedMessage}`)),
-      catchError((error) => of())
+      catchError((error) => of(<ApiResponse<Contact>>{}))
     );
   }
 }
