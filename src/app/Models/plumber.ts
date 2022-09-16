@@ -3,14 +3,16 @@ export class Plumbers {
     name: string;
     image: string;
     email: string;
+    description: string;
     tel_number: string;
     customer_rating: string;
 
-    constructor(id?: string, image?: string, name?: string, email?: string, tel_number?: string, customer_rating?: string){
+    constructor(id?: string, image?: string, name?: string, email?: string, description?: string, tel_number?: string, customer_rating?: string) {
         this._id = id!;
         this.image = image!;
-        this.name= name!;
+        this.name = name!;
         this.email = email!;
+        this.description = description!;
         this.tel_number = tel_number!;
         this.customer_rating = customer_rating!;
     }

@@ -36,6 +36,8 @@
   </div>
 </div>
 
+
+
 <h2 class="services-heading">Our Services</h2>
 <div class="services">
   <div class="service-content">
@@ -51,62 +53,15 @@
     <button>View More</button>
   </div>
   <div class="service-con">
-    <div class="service-imgs">
+    <div *ngFor="let service of services" class="service-imgs">
       <div class="slide-up four col">
         <div class="box">
-          <img src="/assets/images/fire.jpg" alt="" />
+          <img src="{{service.image}}" alt="" />
           <div class="overlay">
-            <h2>Corporate Fire Systems</h2>
+            <h2>{{service.title}}</h2>
             <p>
-              provide early notification to building occupants so they can exit
-              the building, and to notify the fire service so it can respond to
-              the fire.
+              {{service.description}}
             </p>
-            <button class="service-btn">book Service</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="service-imgs">
-      <div class="slide-up four col">
-        <div class="box">
-          <img src="/assets/images/tank.jpg" alt="" />
-          <div class="overlay">
-            <h2>Corporate Fire Systems</h2>
-            <p>
-              provide early notification to building occupants so they can exit
-              the building, and to notify the fire service so it can respond to
-              the fire.
-            </p>
-            <button class="service-btn">book Service</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="service-imgs">
-      <div class="slide-up four col">
-        <div class="box">
-          <img src="/assets/images/pool.jpg" alt="" />
-          <div class="overlay">
-            <h2>Pool Servicing</h2>
-            <p>
-              provide early notification to building occupants so they can exit
-              the building, and to notify the fire service so it can respond to
-              the fire.
-            </p>
-            <button class="service-btn">book Service</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="service-imgs">
-      <div class="slide-up four col">
-        <div class="box">
-          <img src="/assets/images/plumb.jpg" alt="" />
-          <div class="overlay">
-            <h2>Corporate Fire Systems</h2>
-            <p>The methods used for plumbing installation are as numerous and unique as each home, office or building that requires plumbing repair and services.</p>
-
             <button class="service-btn">book Service</button>
           </div>
         </div>
@@ -114,7 +69,6 @@
     </div>
   </div>
 </div>
-
 
 
 <div class="heading">
@@ -122,79 +76,25 @@
 </div>
 
 <div class="showcase">
-  <div class="travel-card">
+  <div *ngFor="let product of products" class="travel-card">
     <div class="image">
-      <img src="/assets/images/saw.jpg" />
+      <img src="{{product.image}}" />
     </div>
     <div class="content">
-      <label class="category">Hack Saw</label>
+      <label class="category">{{product.name}}</label>
       <h1 class="topic">
-        a fine-tooth saw with a blade under tension in a frame that is used for
-        cutting hard materials.
+        {{product.description}}
       </h1>
       <div class="recommendation">
         <div class="score">
-          <span>4.5</span>
+          <span>{{product.rating}}</span>
           <i class="material-icons"> <i class="fas fa-star"></i></i>
         </div>
         <div class="comment"></div>
       </div>
       <div class="price">
         <div class="discount-info">save up to 30% off</div>
-        <div class="original-price">$12,0000</div>
-      </div>
-      <div class="btn">
-        <button type="submit" class="prolink">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="travel-card">
-    <div class="image">
-      <img src="/assets/images/wrench.jpg" />
-    </div>
-    <div class="content">
-      <label class="category">Hack Saw</label>
-      <h1 class="topic">
-        a fine-tooth saw with a blade under tension in a frame that is used for
-        cutting hard materials.
-      </h1>
-      <div class="recommendation">
-        <div class="score">
-          <span>4.5</span>
-          <i class="material-icons"> <i class="fas fa-star"></i></i>
-        </div>
-        <div class="comment"></div>
-      </div>
-      <div class="price">
-        <div class="discount-info">save up to 30% off</div>
-        <div class="original-price">$12,0000</div>
-      </div>
-      <div class="btn">
-        <button type="submit" class="prolink">Add to Cart</button>
-      </div>
-    </div>
-  </div>
-  <div class="travel-card">
-    <div class="image">
-      <img src="/assets/images/plunge.jpg" />
-    </div>
-    <div class="content">
-      <label class="category">Hack Saw</label>
-      <h1 class="topic">
-        a fine-tooth saw with a blade under tension in a frame that is used for
-        cutting hard materials.
-      </h1>
-      <div class="recommendation">
-        <div class="score">
-          <span>4.5</span>
-          <i class="material-icons"> <i class="fas fa-star"></i></i>
-        </div>
-        <div class="comment"></div>
-      </div>
-      <div class="price">
-        <div class="discount-info">save up to 30% off</div>
-        <div class="original-price">$12,0000</div>
+        <div class="original-price">{{product.price | currency}}</div>
       </div>
       <div class="btn">
         <button type="submit" class="prolink">Add to Cart</button>
@@ -202,6 +102,7 @@
     </div>
   </div>
 </div>
+
 <button class="more-btn">View More</button>
 
 

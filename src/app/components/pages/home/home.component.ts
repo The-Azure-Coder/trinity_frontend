@@ -39,6 +39,13 @@ export class HomeComponent implements OnInit {
 
     })
   }
+  getPlumbingSupplies() {
+    this.productService.getProducts().subscribe(supplies => {
+      this.products = supplies.data
+    })
+  }
+
+
 
   /**
    * Handles the submission of the contact us form
@@ -74,6 +81,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getPlumbingServices()
+    this.getPlumbingSupplies()
   }
 }
 
