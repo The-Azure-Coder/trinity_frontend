@@ -4,6 +4,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ApiResponse } from 'src/app/models/api-response';
 import { Contact } from 'src/app/models/contact-us';
 import { ContactService } from 'src/app/services/contact.service';
+import { PlumbingServicesService } from 'src/app/services/plumbing-services.service';
+import { ProductService } from 'src/app/services/product.service';
+import { Products } from 'src/app/models/product';
+import { Services } from 'src/app/models/service';
 
 @Component({
   selector: 'app-home',
@@ -24,10 +28,6 @@ export class HomeComponent implements OnInit {
     message: new FormControl('', [Validators.required]),
   });
 
-  constructor(private contactService: ContactService) {}
-
-  ngOnInit(): void {}
-
   /**
    * Handles the submission of the contact us form
    * @param formData The information captured in the form.
@@ -37,6 +37,23 @@ export class HomeComponent implements OnInit {
     _formData.phoneNumber = parseInt(
       _formData.phoneNumber.toString().replace(/[^0-9_?]+/g, '')
     );
+
+  services: Services[] = []
+  products: Products[] = []
+
+  constructor(private plumServices: PlumbingServicesService, private productService: ProductService, private contactService: ContactService) { }
+
+  getPlumbingServices() {
+    this.plumServices.getServices().subscribe(plumbingService => {
+      this.services = plumbingService
+      console.log(this.services);
+
+    })
+  }
+
+  ngOnInit(): void {
+    this.getPlumbingServices()
+  }
 
     this.contactService.createMessage(_formData).subscribe({
       next: (resp: ApiResponse<Contact>) => {
