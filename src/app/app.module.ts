@@ -16,6 +16,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './components/partials/footer/footer.component';
+import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/partials/footer/footer.component';
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    PlumbingRepairsComponent
   ],
   imports: [
     BrowserModule,
