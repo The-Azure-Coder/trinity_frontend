@@ -17,6 +17,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
     MatInputModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
