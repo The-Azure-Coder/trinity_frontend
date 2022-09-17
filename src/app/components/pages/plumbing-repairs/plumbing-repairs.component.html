@@ -9,7 +9,7 @@
                 <div class="firstName">
                     <mat-form-field appearance="outline">
                         <mat-label>First Name</mat-label>
-                        <input type="text" formControlName="firstName" name="email" matInput placeholder="First name">
+                        <input type="text" formControlName="firstName" name="firstname" matInput placeholder="First name">
                         <mat-error *ngIf=" plumbingRepair.get('firstName')?.touched || submitted">
                         <mat-error *ngIf="plumbingRepair.get('firstName')?.hasError('required')">
                             Please enter your first name
@@ -22,7 +22,7 @@
                 <div class="lastName">
                     <mat-form-field appearance="outline">
                         <mat-label>Last Name</mat-label>
-                        <input type="text" formControlName="lastName" name="email" matInput placeholder="Last Name">
+                        <input type="text" formControlName="lastName" name="lastname" matInput placeholder="Last Name">
                         <mat-error *ngIf=" plumbingRepair.get('lastName')?.touched || submitted">
                             <mat-error *ngIf="plumbingRepair.get('lastName')?.hasError('required')">
                                 Please enter your last name
@@ -50,7 +50,7 @@
                 <div class="phoneNumber">
                     <mat-form-field appearance="outline">
                         <mat-label>Phone Number</mat-label>
-                        <input type="text" formControlName="phoneNumber" name="email" matInput placeholder="Phone Number">
+                        <input type="text" formControlName="phoneNumber" name="phonenumber" matInput placeholder="Phone Number">
                         <mat-error *ngIf=" plumbingRepair.get('phoneNumber')?.touched ||submitted">
                             <mat-error *ngIf="plumbingRepair.get('phoneNumber')?.hasError('required')">
                               Please enter your phone number</mat-error>
@@ -59,6 +59,19 @@
                           </mat-error>
                     </mat-form-field>
                 </div>
+            </div>
+
+            <div class="address">
+                <mat-form-field appearance="outline">
+                    <mat-label>Address</mat-label>
+                    <input type="text" formControlName="address" name="address" matInput placeholder="Address">
+                    <mat-error *ngIf=" plumbingRepair.get('address')?.touched ||submitted">
+                        <mat-error *ngIf="plumbingRepair.get('address')?.hasError('required')">
+                          Please enter your address</mat-error>
+                        <mat-error *ngIf="plumbingRepair.get('address')?.dirty && plumbingRepair.get('address')?.touched">
+                          A valid address is required</mat-error>
+                      </mat-error>
+                </mat-form-field>
             </div>
 
             <div class="plumber">

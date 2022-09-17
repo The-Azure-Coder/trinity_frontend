@@ -17,6 +17,7 @@ export class PlumbingRepairsComponent implements OnInit {
     'lastName':new FormControl('',[Validators.required]),
     'email': new FormControl('', [Validators.required, Validators.email]),
     'phoneNumber':new FormControl('',[Validators.required, Validators.pattern('(([(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{4})')]),
+    'address': new FormControl('',[Validators.required]),
     'plumber':new FormControl('',[Validators.required]),
     'issue':new FormControl('',[Validators.required]),
     'description':new FormControl('', Validators.required)
