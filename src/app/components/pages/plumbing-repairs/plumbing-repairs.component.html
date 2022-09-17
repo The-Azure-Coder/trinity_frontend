@@ -79,8 +79,7 @@
                     <mat-label>Plumbers</mat-label>
                     <select matNativeControl required formControlName="plumber">
                       <option value=""></option>
-                      <option value="id">John Doe</option>
-                      <option value="id">John Black</option>
+                      <option *ngFor="let employee of plumbers">{{employee.name}}</option>
                     </select>
                     <mat-error *ngIf=" plumbingRepair.get('plumber')?.touched ||submitted || plumbingRepair.get('plumber')?.value == '' ">
                         <mat-error *ngIf="plumbingRepair.get('plumber')?.value == '' && plumbingRepair.get('plumber')?.touched">
