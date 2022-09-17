@@ -1,0 +1,37 @@
+<div class="topPage">
+  <img src="https://cdn.discordapp.com/attachments/551573474616016898/1019720287387918467/unknown.png">
+</div>
+<div class="mainBody">
+  <h1>Our Services</h1>
+  <div *ngFor="let service of services" class="infoBody">
+
+    <div class="infoPic">
+      <img src="{{service.image}}">
+    </div>
+    <div class="infoText">
+      <h2 class="title">{{service.title}}</h2>
+      <p class="desc">{{service.description}}</p>
+
+      <h2 class="price">{{service.price | currency}}</h2>
+
+      <button>Book Service </button>
+    </div>
+  </div>
+  <mat-paginator class="pag-color" [length]="length" (page)="getPageWithIndex($event)" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" aria-label="Select page">
+  </mat-paginator>
+
+
+  <div class="banner">
+    <div class="plumber-img">
+      <img src="/assets/images/plumber-with-his-arms-crossed.jpg" alt="">
+
+    </div>
+
+    <div class="custom">
+      <h2>Not Helpful?</h2>
+      <p>Here at trinity we povide you an option to make custom services</p>
+      <button routerLink="/plumbing-repairs">Custom Service</button>
+
+    </div>
+  </div>
+</div>

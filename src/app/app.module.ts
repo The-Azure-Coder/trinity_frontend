@@ -20,6 +20,7 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PlumberDetailComponent } from './components/pages/plumber-detail/plumber-detail.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     FooterComponent,
     PlumbingRepairsComponent,
-    PlumberDetailComponent
+    PlumberDetailComponent,
+    PlumbingServicesComponent
   ],
   imports: [
     BrowserModule,
