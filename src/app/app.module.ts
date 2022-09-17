@@ -18,6 +18,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { PlumberDetailComponent } from './components/pages/plumber-detail/plumber-detail.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    PlumbingRepairsComponent
+    PlumbingRepairsComponent,
+    PlumberDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

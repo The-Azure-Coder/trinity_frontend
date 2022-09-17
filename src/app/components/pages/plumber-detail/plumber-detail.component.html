@@ -1,0 +1,113 @@
+<div class="plumber" *ngIf="plumber">
+  <div class="plumber-background">
+  </div>
+
+  <div class="plumber-head">
+    <h2>Hire {{plumber.name}}?</h2>
+  </div>
+
+  <div class="hire">
+    <div class="plumber-info">
+      <div class="plumber-image">
+        <img src="{{plumber.image}}" alt="">
+      </div>
+      <div class="plumber-content">
+        <h2>{{plumber.name}}</h2>
+        <span>{{plumber.description}}</span>
+        <div class="contact">
+          <span>
+            <label>Email: </label>{{plumber.email}}
+          </span>
+          <span><label>Phone: </label>{{plumber.tel_number}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="plumber-form">
+      <form [formGroup]="hireForm">
+        <div class="name">
+          <div class="first">
+            <input type="hidden" name="plumberID" [(ngModel)]="plumber._id" formControlName="plumberID">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput name="first_nm" formControlName="first_nm" required>
+              <mat-hint>Enter You First Name</mat-hint>
+              <mat-error *ngIf="hireForm.get('first_nm')?.hasError('required')&& hireForm.get('first_nm')?.touched">Your Firstname is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="sec">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput name="last_nm" formControlName="last_nm" required>
+
+              <mat-hint>Enter You last Name</mat-hint>
+              <mat-error *ngIf="hireForm.get('last_nm')?.hasError('required')&& hireForm.get('last_nm')?.touched">Your lastname is required</mat-error>
+
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div class="contact">
+          <div class="mail">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" formControlName="email" name="email" matInput>
+              <mat-hint>Enter Email Address</mat-hint>
+              <mat-error *ngIf=" hireForm.get('email')?.touched">
+                <mat-error *ngIf="hireForm.get('email')?.hasError('required')">
+                  Please Enter your Email Address</mat-error>
+                <mat-error *ngIf="hireForm.get('email')?.hasError('email') && hireForm.get('email')?.touched">
+                  Invalid Email Address</mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="num">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="telephone_num" name="telephone_num" required>
+
+              <mat-hint>Enter phone number</mat-hint>
+              <mat-error *ngIf="hireForm.get('telephone_num')?.hasError('required')&& hireForm.get('telephone_num')?.touched">Phone number required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <mat-form-field hideRequiredMarker class="form-field" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input type="text" name="address" formControlName="address" matInput placeholder="Placeholder">
+          <mat-hint>Enter your Address</mat-hint>
+
+          <mat-error *ngIf="hireForm.get('address')?.hasError('required') && hireForm.get('address')?.touched">
+            Address is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hideRequiredMarker class="select-field" appearance="outline">
+          <mat-label>Select a Service</mat-label>
+          <mat-select formControlName="serviceID" name="serviceID">
+            <mat-option *ngFor="let service of services" value="{{service._id}}">{{service.title}}</mat-option>
+          </mat-select>
+          <mat-hint>Choose a Service</mat-hint>
+          <mat-error *ngIf="hireForm.get('serviceId')?.hasError('required')&& hireForm.get('serviceId')?.touched">Please Select a Service</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hideRequiredMarker class="adjust" appearance="outline">
+          <mat-label>Textarea</mat-label>
+          <textarea class="textarea" formControlName="issues" name="issues" rows="8" matInput></textarea>
+        </mat-form-field>
+
+        <button class="submit-btn" type="submit">Book Appointment</button>
+      </form>
+
+
+    </div>
+  </div>
+
+  <div class="banner1">
+    <p>
+      We are well know for our serivces at large businesses
+    </p>
+
+
+  </div>
+</div>
