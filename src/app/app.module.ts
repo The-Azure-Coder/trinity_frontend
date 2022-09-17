@@ -26,20 +26,22 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    PlumbingRepairsComponent
+    PlumbingRepairsComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, AppRoutingModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     MatIconModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

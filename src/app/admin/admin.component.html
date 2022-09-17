@@ -1,0 +1,99 @@
+<mat-drawer-container
+  class="mat-typography container"
+  style="background-color: #f1eeee"
+>
+  <mat-drawer #drawer class="sidenav" mode="side" opened>
+    <div class="sidenav-content">
+      <div class="logo-wrapper">
+        <img
+          src="/assets/images/trinity-logo-mod.png"
+          alt="Company Logo"
+          width="120"
+          height="100"
+          class="logo"
+        />
+      </div>
+      <div class="sidenav-items">
+        <button routerLinkActive="active" routerLink="/admin/dashboard">
+          <img
+            src="/assets/images/icons8-dashboard-layout-24.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Dashboard
+        </button>
+        <button routerLinkActive="active" routerLink="/admin/services">
+          <img
+            src="/assets/images/icons8-wrench-49.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Services
+        </button>
+        <button routerLinkActive="active" routerLink="/admin/plumbers">
+          <img
+            src="/assets/images/icons8-plumber-68.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Plumbers
+        </button>
+        <button routerLinkActive="active" routerLink="/admin/inventory">
+          <img
+            src="/assets/images/icons8-in-inventory-50.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Inventory
+        </button>
+        <button routerLinkActive="active" routerLink="/admin/users">
+          <img
+            src="/assets/images/icons8-select-users-64.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Users
+        </button>
+        <button routerLinkActive="active" routerLink="/admin/jobs">
+          <img
+            src="/assets/images/icons8-settings-50.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Jobs
+        </button>
+        <button class="logout-btn" (click)="logoutAdmin()">
+          <img
+            src="/assets/images/icons8-logout-48.png"
+            alt="Company Logo"
+            class="sidenav-item-icon"
+          />
+          Logout
+        </button>
+      </div>
+    </div>
+  </mat-drawer>
+
+  <div class="container-content">
+    <div class="top-actionbar">
+      <div class="search">
+        <div class="small-pic">
+          <img src="/assets/images/icons8-search-30.png" alt="" />
+        </div>
+        <input type="search" placeholder="Search..." />
+      </div>
+      <div class="other-controls">
+        <div class="small-pic">
+          <img src="/assets/images/icons8-bell-24.png" alt="" />
+        </div>
+        <div class="profile-pic">
+          <img src="/assets/images/plumber3.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div style="padding: 1.2rem">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
