@@ -7,15 +7,15 @@
         <h2 class="secondary">Plumbing <span class="cl1">Services</span></h2>
         <p>for businesses and households</p>
         <div class="home-btn">
-          <button class="btn1">Our Supplies</button>
-          <button class="btn2">Our Services</button>
+          <button routerLink="/products" class="btn1">Our Supplies</button>
+          <button routerLink="/services" class="btn2">Our Services</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="about">
+<div id="about" class="about">
   <div class="content">
     <h2>About Us</h2>
     <p>
@@ -38,7 +38,7 @@
 
 
 
-<h2 class="services-heading">Our Services</h2>
+<h2 id="services" class="services-heading">Our Services</h2>
 <div class="services">
   <div class="service-content">
     <h2>Featured Services</h2>
@@ -50,7 +50,7 @@
       Our Staff works quick and efficiently at fixing and maintaining your
       plumbing
     </p>
-    <button>View More</button>
+    <button routerLink="services">View More</button>
   </div>
   <div class="service-con">
     <div *ngFor="let service of services" class="service-imgs">
@@ -77,7 +77,7 @@
   <h1 class="half-underline">Top Products</h1>
 </div>
 
-<div class="showcase">
+<div id="supplies" class="showcase">
   <div *ngFor="let product of products" class="travel-card">
     <div class="image">
       <img src="{{product.image}}" />
@@ -109,7 +109,7 @@
 
 
 <div class="plumber-head">
-  <h2 class="half-underline">Our Staff</h2>
+  <h2 id="plumbers" class="half-underline">Our Staff</h2>
 </div>
 <div class="plumber">
   <figure *ngFor="let plumber of plumbers" class="snip1515">
@@ -124,7 +124,7 @@
 </div>
 <mat-paginator class="pag-adjust" [length]="length2" (page)="getPageWithIndex2($event)" [pageSize]="pageSize2" [pageSizeOptions]="pageSizeOptions2" aria-label="Select page"> </mat-paginator>
 
-<h2 class="contactus">Contact US</h2>
+<h2 id="contact" class="contactus">Contact US</h2>
 
 <div class="message-card">
   <div class="message-form">
