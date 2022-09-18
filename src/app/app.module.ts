@@ -38,9 +38,11 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, AppRoutingModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     MatIconModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
@@ -50,6 +52,6 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
     MatSelectModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

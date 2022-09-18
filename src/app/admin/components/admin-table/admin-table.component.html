@@ -1,0 +1,46 @@
+<div class="rounded">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.firstName }}</td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.lastName }}</td>
+    </ng-container>
+
+    <!-- Telephone Column -->
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Telephone</th>
+      <td mat-cell *matCellDef="let row">{{ row.telephone }}</td>
+    </ng-container>
+
+    <!-- Plumber Column -->
+    <ng-container matColumnDef="plumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Plumber</th>
+      <td mat-cell *matCellDef="let row">{{ row.plumber }}</td>
+    </ng-container>
+
+    <!-- Issues Column -->
+    <ng-container matColumnDef="issues">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Issues</th>
+      <td mat-cell *matCellDef="let row">{{ row.issues }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>
