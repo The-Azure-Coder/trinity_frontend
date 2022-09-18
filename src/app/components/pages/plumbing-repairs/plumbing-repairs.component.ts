@@ -3,6 +3,9 @@ import { EmailValidator, FormControl, FormGroup, Validators } from '@angular/for
 import { Router } from '@angular/router';
 import { Plumbers } from 'src/app/models/plumber';
 import { PlumberService } from 'src/app/services/plumber.service';
+import { Services } from 'src/app/models/service';
+import { PlumbingServicesService } from 'src/app/services/plumbing-services.service';
+import { RepairService } from 'src/app/services/repair.service';
 @Component({
   selector: 'app-plumbing-repairs',
   templateUrl: './plumbing-repairs.component.html',
@@ -12,8 +15,10 @@ export class PlumbingRepairsComponent implements OnInit {
   emailMatch = false;
   submitted = false;
   plumbers!: Plumbers[];
+  services!: Services[];
 
-  constructor(private plumberService:PlumberService) { }
+  constructor(private plumberService:PlumberService, private plumbingService: PlumbingServicesService,
+              private repairService: RepairService) { }
 
   plumbingRepair = new FormGroup({
     'firstName':new FormControl('',[Validators.required]),
@@ -36,12 +41,33 @@ export class PlumbingRepairsComponent implements OnInit {
     })
   }
 
-  submitForm(){
-    this.submitted = true
+  getAllServices(){
+    this.plumbingService.getServices().subscribe({
+      next:(res:any)=>{
+        this.services = res.data
+      },
+      error:(err)=>{
+        console.log(`An error occured ${err}`);
+      }
+    })
+  }
+
+  submitForm(body:object){
+    if(this.plumbingRepair?.valid){
+       this.repairService.createRepair(body).subscribe({
+        next:()=>{
+          alert('Your Request Has Been Submitted');
+        },
+        error:(err)=>{
+          console.log(`An Error Occured While Submitting Request: ${err}`);
+        }
+      })
+    }
   }
 
   ngOnInit(): void {
     this.getAllPlumbers();
+    this.getAllServices();
   }
 
 }
