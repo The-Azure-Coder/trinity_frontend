@@ -14,24 +14,24 @@
       <p>{{service.description}}</p>
     </div>
     <div class="service-form">
-      <form [formGroup]="serviceForm">
+      <form [formGroup]="serviceForm" (submit)="bookService()">
         <div class="name">
           <div class="first">
-            <input type="hidden" name="serviceID" [(ngModel)]="service._id" formControlName="serviceID">
+            <input type="hidden" name="service" [(ngModel)]="service._id" formControlName="service">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>First Name</mat-label>
-              <input matInput name="first_nm" formControlName="first_nm" required>
+              <input matInput name="firstName" formControlName="firstName" required>
               <mat-hint>Enter You First Name</mat-hint>
-              <mat-error *ngIf="serviceForm.get('first_nm')?.hasError('required')&& serviceForm.get('first_nm')?.touched">Your Firstname is required</mat-error>
+              <mat-error *ngIf="serviceForm.get('firstName')?.hasError('required')&& serviceForm.get('firstName')?.touched">Your Firstname is required</mat-error>
             </mat-form-field>
           </div>
           <div class="sec">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput name="last_nm" formControlName="last_nm" required>
+              <input matInput name="lastName" formControlName="lastName" required>
 
               <mat-hint>Enter You last Name</mat-hint>
-              <mat-error *ngIf="serviceForm.get('last_nm')?.hasError('required')&& serviceForm.get('last_nm')?.touched">Your lastname is required</mat-error>
+              <mat-error *ngIf="serviceForm.get('lastName')?.hasError('required')&& serviceForm.get('lastName')?.touched">Your lastname is required</mat-error>
 
             </mat-form-field>
           </div>
@@ -55,10 +55,10 @@
           <div class="num">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>Phone Number</mat-label>
-              <input matInput formControlName="telephone_num" name="telephone_num" required>
+              <input matInput formControlName="telephone" name="telephone" required>
 
               <mat-hint>Enter phone number</mat-hint>
-              <mat-error *ngIf="serviceForm.get('telephone_num')?.hasError('required')&& serviceForm.get('telephone_num')?.touched">Phone number required</mat-error>
+              <mat-error *ngIf="serviceForm.get('telephone')?.hasError('required')&& serviceForm.get('telephone')?.touched">Phone number required</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -75,16 +75,16 @@
 
         <mat-form-field hideRequiredMarker class="select-field" appearance="outline">
           <mat-label>Select a Plumber</mat-label>
-          <mat-select formControlName="plumberID" name="serviceID">
+          <mat-select formControlName="plumber" name="plumber">
             <mat-option *ngFor="let plumber of plumbers" value="{{plumber._id}}">{{plumber.name}}</mat-option>
           </mat-select>
           <mat-hint>Select a Plumber</mat-hint>
-          <mat-error *ngIf="serviceForm.get('serviceId')?.hasError('required')&& serviceForm.get('serviceId')?.touched">Please Select a Service</mat-error>
+          <mat-error *ngIf="serviceForm.get('plumber')?.hasError('required')&& serviceForm.get('plumber')?.touched">Please Select a Service</mat-error>
         </mat-form-field>
 
         <mat-form-field hideRequiredMarker class="adjust" appearance="outline">
           <mat-label>Textarea</mat-label>
-          <textarea class="textarea" formControlName="issues" name="issues" rows="8" matInput></textarea>
+          <textarea class="textarea" formControlName="issue" name="issue" rows="8" matInput></textarea>
         </mat-form-field>
 
         <div class="price">
