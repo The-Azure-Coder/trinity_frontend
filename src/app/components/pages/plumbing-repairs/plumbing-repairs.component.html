@@ -3,18 +3,18 @@
         <img src="/assets/images/plumbing_repair.jpg">
     </div>
     <div class="form-content">
-        <form action="" [formGroup]="plumbingRepair" (submit)="submitForm()">
+        <form action="" [formGroup]="plumbingRepair">
 
             <div class="names">
                 <div class="firstName">
                     <mat-form-field appearance="outline">
                         <mat-label>First Name</mat-label>
-                        <input type="text" formControlName="firstName" name="firstname" matInput placeholder="First name">
-                        <mat-error *ngIf=" plumbingRepair.get('firstName')?.touched || submitted">
+                        <input type="text" formControlName="firstName" name="firstname" matInput placeholder="First name" #fname>
+                        <mat-error *ngIf="plumbingRepair.get('firstName')?.touched || plumbingRepair.get('firstName')?.untouched || submitted">
                         <mat-error *ngIf="plumbingRepair.get('firstName')?.hasError('required')">
                             Please enter your first name
                         </mat-error>
-                        <mat-error *ngIf="plumbingRepair.get('firstName')?.hasError('firstName') && plumbingRepair.get('firstName')?.touched">
+                        <mat-error *ngIf="plumbingRepair.get('firstName')?.hasError('required') && plumbingRepair.get('firstName')?.touched">
                             Invalid first name</mat-error>
                         </mat-error>
                       </mat-form-field>
@@ -22,12 +22,12 @@
                 <div class="lastName">
                     <mat-form-field appearance="outline">
                         <mat-label>Last Name</mat-label>
-                        <input type="text" formControlName="lastName" name="lastname" matInput placeholder="Last Name">
-                        <mat-error *ngIf=" plumbingRepair.get('lastName')?.touched || submitted">
+                        <input type="text" formControlName="lastName" name="lastname" matInput placeholder="Last Name" #lname>
+                        <mat-error *ngIf=" plumbingRepair.get('lastName')?.touched || plumbingRepair.get('lastName')?.untouched || submitted">
                             <mat-error *ngIf="plumbingRepair.get('lastName')?.hasError('required')">
                                 Please enter your last name
                             </mat-error>
-                            <mat-error *ngIf="plumbingRepair.get('lastName')?.hasError('lastName') && plumbingRepair.get('lastName')?.touched">
+                            <mat-error *ngIf="plumbingRepair.get('lastName')?.hasError('required') && plumbingRepair.get('lastName')?.touched">
                                 Invalid last name</mat-error>
                             </mat-error>
                       </mat-form-field>
@@ -38,11 +38,11 @@
                 <div class="email">
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input type="email"  formControlName="email" name="email" matInput placeholder="Email Address">
-                        <mat-error *ngIf=" plumbingRepair.get('email')?.touched ||submitted">
+                        <input type="email"  formControlName="email" name="email" matInput placeholder="Email Address" #mail>
+                        <mat-error *ngIf=" plumbingRepair.get('email')?.touched || plumbingRepair.get('email')?.untouched ||submitted">
                           <mat-error *ngIf="plumbingRepair.get('email')?.hasError('required')">
                             Please enter your email address</mat-error>
-                          <mat-error *ngIf="plumbingRepair.get('email')?.hasError('email') && plumbingRepair.get('email')?.touched">
+                          <mat-error *ngIf="plumbingRepair.get('email')?.hasError('required') && plumbingRepair.get('email')?.touched">
                             Invalid email address</mat-error>
                         </mat-error>
                     </mat-form-field>
@@ -50,8 +50,8 @@
                 <div class="phoneNumber">
                     <mat-form-field appearance="outline">
                         <mat-label>Phone Number</mat-label>
-                        <input type="text" formControlName="phoneNumber" name="phonenumber" matInput placeholder="Phone Number">
-                        <mat-error *ngIf=" plumbingRepair.get('phoneNumber')?.touched ||submitted">
+                        <input type="text" formControlName="phoneNumber" name="phonenumber" matInput placeholder="Phone Number" #mobile>
+                        <mat-error *ngIf=" plumbingRepair.get('phoneNumber')?.touched || plumbingRepair.get('phoneNumber')?.untouched ||submitted">
                             <mat-error *ngIf="plumbingRepair.get('phoneNumber')?.hasError('required')">
                               Please enter your phone number</mat-error>
                             <mat-error *ngIf="plumbingRepair.get('phoneNumber')?.dirty && plumbingRepair.get('phoneNumber')?.touched">
@@ -64,8 +64,8 @@
             <div class="address">
                 <mat-form-field appearance="outline">
                     <mat-label>Address</mat-label>
-                    <input type="text" formControlName="address" name="address" matInput placeholder="Address">
-                    <mat-error *ngIf=" plumbingRepair.get('address')?.touched ||submitted">
+                    <input type="text" formControlName="address" name="address" matInput placeholder="Address" #locate>
+                    <mat-error *ngIf=" plumbingRepair.get('address')?.touched || plumbingRepair.get('address')?.untouched ||submitted">
                         <mat-error *ngIf="plumbingRepair.get('address')?.hasError('required')">
                           Please enter your address</mat-error>
                         <mat-error *ngIf="plumbingRepair.get('address')?.dirty && plumbingRepair.get('address')?.touched">
@@ -77,45 +77,70 @@
             <div class="plumber">
                 <mat-form-field appearance="outline">
                     <mat-label>Plumbers</mat-label>
-                    <select matNativeControl required formControlName="plumber">
+                    <select matNativeControl required formControlName="plumber" #worker>
                       <option value=""></option>
-                      <option *ngFor="let employee of plumbers">{{employee.name}}</option>
+                      <option *ngFor="let employee of plumbers" value="{{employee._id}}">{{employee.name}}</option>
                     </select>
-                    <mat-error *ngIf=" plumbingRepair.get('plumber')?.touched ||submitted || plumbingRepair.get('plumber')?.value == '' ">
-                        <mat-error *ngIf="plumbingRepair.get('plumber')?.value == '' && plumbingRepair.get('plumber')?.touched">
-                          Please select a plumber</mat-error>
-                      </mat-error>
+                    <mat-error *ngIf="plumbingRepair.get('plumber')?.touched || plumbingRepair.get('plumber')?.untouched || submitted">
+                        <mat-error *ngIf="plumbingRepair.get('plumber')?.hasError('required')">
+                            Please select a plumber
+                        </mat-error>
+                        <mat-error *ngIf="plumbingRepair.get('plumber')?.hasError('required') && plumbingRepair.get('description')?.touched">
+                            A plumber must be selected</mat-error>
+                        </mat-error>
                 </mat-form-field>
             </div>
 
             <div class="issues">
                 <mat-form-field appearance="outline">
                     <mat-label>Common issues</mat-label>
-                    <select matNativeControl required formControlName="issue">
+                    <select matNativeControl required formControlName="issue" #repair>
                       <option value=""></option>
-                      <option value="id">Pipe Leaks</option>
-                      <option value="id">Drain Cleaning</option>
+                      <option *ngFor="let repairs of services" value="{{repairs._id}}">{{repairs.title}}</option>
                     </select>
-                    <mat-error *ngIf=" plumbingRepair.get('issue')?.touched ||submitted || plumbingRepair.get('issue')?.value == '' ">
-                        <mat-error *ngIf="plumbingRepair.get('issue')?.value == '' && plumbingRepair.get('issue')?.touched">
-                          Please select an issue</mat-error>
-                      </mat-error>
+                    <mat-error *ngIf="plumbingRepair.get('issue')?.touched || plumbingRepair.get('issue')?.untouched || submitted">
+                        <mat-error *ngIf="plumbingRepair.get('issue')?.hasError('required')">
+                            Please select a plumber
+                        </mat-error>
+                        <mat-error *ngIf="plumbingRepair.get('issue')?.hasError('required') && plumbingRepair.get('issue')?.touched">
+                            A plumber must be selected</mat-error>
+                        </mat-error>
                 </mat-form-field>
             </div>
 
             <div class="message">
                 <mat-form-field appearance="outline">
                     <mat-label>Describe your issue</mat-label>
-                    <textarea matInput formControlName="description"></textarea>
-                    <mat-error *ngIf=" plumbingRepair.get('description')?.touched ||submitted || plumbingRepair.get('description')?.value == '' ">
+                    <textarea matInput formControlName="description" #desc></textarea>
+                    <mat-error *ngIf="plumbingRepair.get('description')?.touched || plumbingRepair.get('description')?.untouched || submitted">
+                        <mat-error *ngIf="plumbingRepair.get('description')?.hasError('required')">
+                            Please enter your issue
+                        </mat-error>
                         <mat-error *ngIf="plumbingRepair.get('description')?.hasError('required') && plumbingRepair.get('description')?.touched">
-                          Please enter a description of the issue</mat-error>
-                      </mat-error>
+                            Please enter your issue</mat-error>
+                        </mat-error>
                   </mat-form-field>
             </div>
 
             <div class="submit_btn">
-                <button>Book Service</button>
+                <button (click)="submitForm({
+                    firstName: fname.value,
+                    lastName: lname.value,
+                    telephone: mobile.value,
+                    email: mail.value,
+                    address: locate.value,
+                    plumber: worker.value,
+                    service: repair.value,
+                    issue: desc.value
+                });
+                fname.value='';
+                lname.value='';
+                mobile.value='';
+                mail.value='';
+                locate.value='';
+                worker.value='';
+                repair.value='';
+                desc.value=''">Book Service</button>
             </div>
 
         </form>
