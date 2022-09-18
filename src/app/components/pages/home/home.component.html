@@ -7,8 +7,8 @@
         <h2 class="secondary">Plumbing <span class="cl1">Services</span></h2>
         <p>for businesses and households</p>
         <div class="home-btn">
-          <button routerLink="/products" class="btn1">Our Supplies</button>
-          <button routerLink="/services" class="btn2">Our Services</button>
+          <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/products" class="btn1">Our Supplies</button>
+          <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/services" class="btn2">Our Services</button>
         </div>
       </div>
     </div>
@@ -50,7 +50,7 @@
       Our Staff works quick and efficiently at fixing and maintaining your
       plumbing
     </p>
-    <button routerLink="services">View More</button>
+    <button [ngStyle]="{'cursor': 'pointer'}" routerLink="services">View More</button>
   </div>
   <div class="service-con">
     <div *ngFor="let service of services" class="service-imgs">
@@ -62,7 +62,7 @@
             <p>
               {{service.description}}
             </p>
-            <button routerLink="/service-detail/{{service._id}}" class="service-btn">book Service</button>
+            <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/service-detail/{{service._id}}" class="service-btn">book Service</button>
           </div>
         </div>
       </div>
@@ -99,13 +99,13 @@
         <div class="original-price">{{product.price | currency}}</div>
       </div>
       <div class="btn">
-        <button type="submit" class="prolink">Add to Cart</button>
+        <button [ngStyle]="{'cursor': 'pointer'}" type="submit" class="prolink">Add to Cart</button>
       </div>
     </div>
   </div>
 </div>
 
-<button routerLink="/products" class="more-btn">View More</button>
+<button [ngStyle]="{'cursor': 'pointer'}" routerLink="/products" class="more-btn">View More</button>
 
 
 <div class="plumber-head">
@@ -118,7 +118,7 @@
       <h3>{{plumber.name}}</h3>
       <h4>Plumber</h4>
       <p>{{plumber.description}}</p>
-      <button routerLink="/plumbers-details/{{plumber._id}}" class="hire-btn">Hire Now</button>
+      <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/plumbers-details/{{plumber._id}}" class="hire-btn">Hire Now</button>
     </figcaption>
   </figure>
 </div>

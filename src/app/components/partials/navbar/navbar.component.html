@@ -1,4 +1,4 @@
-<div class="hide-foot" [ngClass]="footerRoute('/register') || footerRoute('/login') ? 'hide' : 'show'">
+<div class="hide-foot" [ngClass]="targetRoute('/register') || targetRoute('/login') || targetRoute('/admin')  ? 'hide' : 'show'">
   <div class="nav">
     <div class="nav-general">
       <div class="logo">
@@ -23,16 +23,16 @@
             <a><span>Earning Points</span></a>
           </div>
           <div class="register-btn">
-            <button [routerLink]="['/register']">Register</button>
+            <button [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/register']">Register</button>
 
-            <a *ngIf="!authenticated" [routerLink]="['/login']"><span>Login<mat-icon>arrow_right</mat-icon>
+            <a [ngStyle]="{'cursor': 'pointer'}" *ngIf="!authenticated" [routerLink]="['/login']"><span>Login<mat-icon>arrow_right</mat-icon>
               </span></a>
             <span *ngIf="authenticated">
               <a [ngStyle]="{'cursor': 'pointer'}" (click)="logOut()"><span>Log Out</span></a>
             </span>
           </div>
         </mat-menu>
-        <span [routerLink]="['/chart']"><img src="/assets/images/cart.png" alt="login">Cart</span>
+        <span [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/chart']"><img src="/assets/images/cart.png" alt="login">Cart</span>
       </div>
     </div>
     <div class="moto">
@@ -47,7 +47,7 @@
         <div class="sign-image">
           <img src="/assets/images/user2.png" alt="">
         </div>
-        <div [routerLink]="['/register']" class="sign-content">
+        <div [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/register']" class="sign-content">
           <span>Sign in/Sign up</span>
           <span class="bor">Free Trial for first time</span>
         </div>
@@ -76,3 +76,4 @@
 
     </div>
   </div>
+</div>
