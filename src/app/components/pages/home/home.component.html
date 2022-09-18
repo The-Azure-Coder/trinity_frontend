@@ -7,15 +7,15 @@
         <h2 class="secondary">Plumbing <span class="cl1">Services</span></h2>
         <p>for businesses and households</p>
         <div class="home-btn">
-          <button class="btn1">Our Supplies</button>
-          <button class="btn2">Our Services</button>
+          <button routerLink="/products" class="btn1">Our Supplies</button>
+          <button routerLink="/services" class="btn2">Our Services</button>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="about">
+<div id="about" class="about">
   <div class="content">
     <h2>About Us</h2>
     <p>
@@ -38,7 +38,7 @@
 
 
 
-<h2 class="services-heading">Our Services</h2>
+<h2 id="services" class="services-heading">Our Services</h2>
 <div class="services">
   <div class="service-content">
     <h2>Featured Services</h2>
@@ -50,7 +50,7 @@
       Our Staff works quick and efficiently at fixing and maintaining your
       plumbing
     </p>
-    <button>View More</button>
+    <button routerLink="services">View More</button>
   </div>
   <div class="service-con">
     <div *ngFor="let service of services" class="service-imgs">
@@ -62,11 +62,13 @@
             <p>
               {{service.description}}
             </p>
-            <button class="service-btn">book Service</button>
+            <button routerLink="/service-detail/{{service._id}}" class="service-btn">book Service</button>
           </div>
         </div>
       </div>
     </div>
+    <mat-paginator class="pag-color" [length]="length" (page)="getPageWithIndex($event)" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" aria-label="Select page">
+    </mat-paginator>
   </div>
 </div>
 
@@ -75,7 +77,7 @@
   <h1 class="half-underline">Top Products</h1>
 </div>
 
-<div class="showcase">
+<div id="supplies" class="showcase">
   <div *ngFor="let product of products" class="travel-card">
     <div class="image">
       <img src="{{product.image}}" />
@@ -103,44 +105,26 @@
   </div>
 </div>
 
-<button class="more-btn">View More</button>
+<button routerLink="/products" class="more-btn">View More</button>
 
 
 <div class="plumber-head">
-  <h2 class="half-underline">Our Staff</h2>
+  <h2 id="plumbers" class="half-underline">Our Staff</h2>
 </div>
 <div class="plumber">
-  <figure class="snip1515">
-    <div class="profile-image"><img src="https://t4.ftcdn.net/jpg/00/76/48/69/360_F_76486945_q6vbJxSiWTdWEx4GLkm1FceYpawQau9H.jpg" alt="sample47" /></div>
+  <figure *ngFor="let plumber of plumbers" class="snip1515">
+    <div class="profile-image"><img src="{{plumber.image}}" alt="sample47" /></div>
     <figcaption>
-      <h3>Roshane Johnson</h3>
+      <h3>{{plumber.name}}</h3>
       <h4>Plumber</h4>
-      <p>Working along each other towards the same goal in proviing to quality services</p>
-      <button class="hire-btn">Hire Now</button>
+      <p>{{plumber.description}}</p>
+      <button routerLink="/plumbers-details/{{plumber._id}}" class="hire-btn">Hire Now</button>
     </figcaption>
   </figure>
-  <figure class="snip1515">
-    <div class="profile-image"><img src="https://media.istockphoto.com/photos/cheerful-mechanic-picture-id174822119?k=20&m=174822119&s=612x612&w=0&h=EF0fJ1gsctyZqEam8e91xEnR8X0_z6jUkIjcWoN4RDs=" alt="sample47" /></div>
-    <figcaption>
-      <h3>Anthony Barret</h3>
-      <h4>Plumber</h4>
-      <p>Working along each other towards the same goal in proviing to quality services</p>
-      <button class="hire-btn">Hire Now</button>
-    </figcaption>
-  </figure>
-  <figure class="snip1515">
-    <div class="profile-image"><img src="https://us.123rf.com/450wm/kurhan/kurhan1501/kurhan150100563/35128385-handyman-isolated-over-white-background-house-renovation.jpg?ver=6" alt="sample47" /></div>
-    <figcaption>
-      <h3>Jason Vaz</h3>
-      <h4>Plumber</h4>
-      <p>Working along each other towards the same goal in proviing to quality services</p>
-      <button class="hire-btn">Hire Now</button>
-    </figcaption>
-  </figure>
-
 </div>
+<mat-paginator class="pag-adjust" [length]="length2" (page)="getPageWithIndex2($event)" [pageSize]="pageSize2" [pageSizeOptions]="pageSizeOptions2" aria-label="Select page"> </mat-paginator>
 
-<h2 class="contactus">Contact US</h2>
+<h2 id="contact" class="contactus">Contact US</h2>
 
 <div class="message-card">
   <div class="message-form">

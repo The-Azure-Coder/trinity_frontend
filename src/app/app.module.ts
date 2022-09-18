@@ -17,6 +17,11 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PlumberDetailComponent } from './components/pages/plumber-detail/plumber-detail.component';
+import { MatSelectModule } from '@angular/material/select';
+import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
+import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +32,9 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
     HomeComponent,
     FooterComponent,
     PlumbingRepairsComponent,
+    PlumberDetailComponent,
+    PlumbingServicesComponent,
+    ServiceDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,6 +48,8 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
     ReactiveFormsModule,
     MatMenuModule,
     MatButtonModule,
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,152 @@
+.service-background{
+    background-image: url('/assets/images/banner4.jpg');
+    background-position: center;
+    background-size: cover;
+    height: 20rem;
+    margin-bottom: 2rem;
+}
+
+.service-heading{
+    text-align: center;
+    
+    margin-bottom: 2rem;
+   
+
+    h2{
+        font-size: 30px;
+        color: #0498FF;
+
+    }
+
+}
+
+
+.service-info{
+     border: 1px solid rgb(224, 223, 223);
+     padding: 20px;
+     margin-bottom: 2rem;
+     margin: 0 auto 2rem;
+     width: fit-content;
+      display: flex;
+     justify-content: center;
+
+    .service-content{
+        margin-right: 2rem;
+
+        p{
+            width: 30rem;
+            text-align: center;
+            color: #777;
+            line-height: 1.5rem;
+        }
+
+
+        .service-img{
+
+            img{
+                width: 30rem;
+            }
+
+        }
+    }
+
+    .service-form{
+
+       
+        border-radius: .4rem;
+
+        // padding: 30px;
+        width: 32rem;
+       
+        .select-field{
+            width: 31.5rem;
+        }
+
+        .adjust{
+            width: 31.5rem;
+          
+
+        }
+        
+        .textarea{
+           
+        }
+        
+        .name{
+            display: flex;
+            width: fit-content;
+        
+            mat-form-field{
+                width: 15rem;
+            }
+        
+            .first{
+                margin-right: 1.5rem;
+            }
+        }
+        
+        .contact{
+            display: flex;
+            width: fit-content;
+            
+        
+            mat-form-field{
+                width: 15rem;
+            }
+        
+            .mail{
+                margin-right: 1.5rem;
+        
+            }
+        }
+        
+        .form-field{
+            display: block;
+            width: 31.5rem;
+        }
+    
+        .submit-btn{
+            padding: 15px;
+            background-color: rgb(13, 153, 239) ;
+            border: none;
+            color: white;
+            width: 31.5rem;
+            margin-bottom: 2rem;
+            border-radius: .3rem;
+            cursor: pointer;
+        }
+        
+    }
+
+    .price{
+        display: flex;
+        margin-bottom: 2rem;
+
+        .label{
+            margin-right: 21rem;
+            color: #0498FF;
+            font-size: 20px;
+          
+        }
+
+        .value{
+            color: #ffcd04;
+            font-size: 20px;
+          
+        }
+    }
+
+    }
+
+    .banner{
+        background-image: url('/assets/images/banner7.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 25rem;
+
+    }
+
+
+
+

@@ -1,0 +1,106 @@
+<div class="service" *ngIf="service">
+  <div class="service-background">
+  </div>
+
+  <div class="service-heading">
+    <h2>{{service.title}} service form</h2>
+  </div>
+
+  <div class="service-info">
+    <div class="service-content">
+      <div class="service-img">
+        <img src="{{service.image}}" alt="">
+      </div>
+      <p>{{service.description}}</p>
+    </div>
+    <div class="service-form">
+      <form [formGroup]="serviceForm">
+        <div class="name">
+          <div class="first">
+            <input type="hidden" name="serviceID" [(ngModel)]="service._id" formControlName="serviceID">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput name="first_nm" formControlName="first_nm" required>
+              <mat-hint>Enter You First Name</mat-hint>
+              <mat-error *ngIf="serviceForm.get('first_nm')?.hasError('required')&& serviceForm.get('first_nm')?.touched">Your Firstname is required</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="sec">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput name="last_nm" formControlName="last_nm" required>
+
+              <mat-hint>Enter You last Name</mat-hint>
+              <mat-error *ngIf="serviceForm.get('last_nm')?.hasError('required')&& serviceForm.get('last_nm')?.touched">Your lastname is required</mat-error>
+
+            </mat-form-field>
+          </div>
+
+        </div>
+
+        <div class="contact">
+          <div class="mail">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" formControlName="email" name="email" matInput>
+              <mat-hint>Enter Email Address</mat-hint>
+              <mat-error *ngIf=" serviceForm.get('email')?.touched">
+                <mat-error *ngIf="serviceForm.get('email')?.hasError('required')">
+                  Please Enter your Email Address</mat-error>
+                <mat-error *ngIf="serviceForm.get('email')?.hasError('email') && serviceForm.get('email')?.touched">
+                  Invalid Email Address</mat-error>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="num">
+            <mat-form-field hideRequiredMarker appearance="outline">
+              <mat-label>Phone Number</mat-label>
+              <input matInput formControlName="telephone_num" name="telephone_num" required>
+
+              <mat-hint>Enter phone number</mat-hint>
+              <mat-error *ngIf="serviceForm.get('telephone_num')?.hasError('required')&& serviceForm.get('telephone_num')?.touched">Phone number required</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+
+
+        <mat-form-field hideRequiredMarker class="form-field" appearance="outline">
+          <mat-label>Address</mat-label>
+          <input type="text" name="address" formControlName="address" matInput placeholder="Placeholder">
+          <mat-hint>Enter your Address</mat-hint>
+
+          <mat-error *ngIf="serviceForm.get('address')?.hasError('required') && serviceForm.get('address')?.touched">
+            Address is required</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hideRequiredMarker class="select-field" appearance="outline">
+          <mat-label>Select a Plumber</mat-label>
+          <mat-select formControlName="plumberID" name="serviceID">
+            <mat-option *ngFor="let plumber of plumbers" value="{{plumber._id}}">{{plumber.name}}</mat-option>
+          </mat-select>
+          <mat-hint>Select a Plumber</mat-hint>
+          <mat-error *ngIf="serviceForm.get('serviceId')?.hasError('required')&& serviceForm.get('serviceId')?.touched">Please Select a Service</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hideRequiredMarker class="adjust" appearance="outline">
+          <mat-label>Textarea</mat-label>
+          <textarea class="textarea" formControlName="issues" name="issues" rows="8" matInput></textarea>
+        </mat-form-field>
+
+        <div class="price">
+          <div class="label">Price</div>
+          <div class="value">{{service.price | currency }}</div>
+        </div>
+
+        <button class="submit-btn" type="submit">Book Service</button>
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="banner">
+
+</div>

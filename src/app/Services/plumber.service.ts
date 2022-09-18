@@ -22,14 +22,14 @@ export class PlumberService {
     );
   }
 
-  getAllPlumbers(): Observable<ApiResponse<Plumbers[]>>{
+  getAllPlumbers(): Observable<ApiResponse<Plumbers[]>> {
     return this.http.get<ApiResponse<Plumbers>>(this.API_URL).pipe(
       tap((plumbers: any) => console.log(`${plumbers}`)),
       catchError(_error => of(<ApiResponse<Plumbers[]>>{})),
     );
   }
 
-  getPlumberById(id: string): Observable<ApiResponse<Plumbers>>{
+  getPlumberById(id: string): Observable<ApiResponse<Plumbers>> {
     return this.http.get<ApiResponse<Plumbers>>(`${this.API_URL}/${id}`).pipe(
       tap(selectedplumber => console.log(`${selectedplumber}`)),
       catchError(_error => of(<ApiResponse<Plumbers>>{})),
@@ -47,6 +47,15 @@ export class PlumberService {
     return this.http.delete<ApiResponse<Plumbers>>(`${this.API_URL}/${id}`).pipe(
       tap(deletedplumber => console.log(`${deletedplumber}`)),
       catchError(_error => of(<ApiResponse<Plumbers>>{}))
+    );
+  }
+
+  getLimitedPlumbers(
+    page = 1,
+    limit = 20
+  ): Observable<ApiResponse<Plumbers[]>> {
+    return this.http.get<ApiResponse<Plumbers[]>>(
+      this.API_URL + '?_page=' + page + '&_limit=' + limit
     );
   }
 

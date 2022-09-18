@@ -28,7 +28,7 @@ export class PlumbingServicesService {
     );
   }
 
-  getServicesById(id: string): Observable<ApiResponse<Services>>{
+  getServicesById(id: string): Observable<ApiResponse<Services>> {
     return this.http.get<ApiResponse<Services>>(`${this.API_URL}/${id}`).pipe(
       tap(selectedService => console.log(`${selectedService}`)),
       catchError(error => of(<ApiResponse<Services>>{})),
@@ -48,4 +48,14 @@ export class PlumbingServicesService {
       catchError(error => of(<ApiResponse<Services>>{}))
     );
   }
+
+  getLimitedServices(
+    page = 1,
+    limit = 20
+  ): Observable<ApiResponse<Services[]>> {
+    return this.http.get<ApiResponse<Services[]>>(
+      this.API_URL + '?_page=' + page + '&_limit=' + limit
+    );
+  }
+
 }
