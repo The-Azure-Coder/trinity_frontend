@@ -6,12 +6,14 @@ import { PlumberDetailComponent } from './components/pages/plumber-detail/plumbe
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
 import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 import { RegisterComponent } from './components/pages/register/register.component';
+import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'plumbers-details/:id', component: PlumberDetailComponent },
+  { path: 'service-detail/:id', component: ServiceDetailComponent },
   { path: 'services', component: PlumbingServicesComponent },
   { path: 'plumbing-repairs', component: PlumbingRepairsComponent },
 
