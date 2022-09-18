@@ -1,101 +1,103 @@
-<div class="mainFooter">
-  <div class="main4 logo">
-    <img class="child1" src="/assets/images/trinity-logo-mod.png">
-    <p class="text child1">we at trinity is responsible for providing high quality and the most efficient medical services</p>
-    <div class="contact child1">
-      <p>
-        <mat-icon>location_on</mat-icon>123 havendale cresent
-      </p>
-      <p>
-        <mat-icon>phone</mat-icon>(876) 842-7815
-      </p>
-      <p>
-        <mat-icon>mail</mat-icon>Trinity@gmail.com
-      </p>
-    </div>
-  </div>
-  <div class="links">
-    <h3>Our Links</h3>
-    <div class="subLinks">
-      <div class="subSubLinks1">
-        <ul>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              Sevices
-            </li>
-          </a>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              About us
-            </li>
-          </a>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              Plumbers
-            </li>
-          </a>
-        </ul>
+<footer [ngClass]="targetRoute('/register') || targetRoute('/login') || targetRoute('/admin')  ? 'hide' : 'show'">
+  <div class="mainFooter">
+    <div class="main4 logo">
+      <img class="child1" src="/assets/images/trinity-logo-mod.png">
+      <p class="text child1">we at trinity is responsible for providing high quality and the most efficient medical services</p>
+      <div class="contact child1">
+        <p>
+          <mat-icon>location_on</mat-icon>123 havendale cresent
+        </p>
+        <p>
+          <mat-icon>phone</mat-icon>(876) 842-7815
+        </p>
+        <p>
+          <mat-icon>mail</mat-icon>Trinity@gmail.com
+        </p>
       </div>
-      <div class="subSubLinks2">
-        <ul>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              Gallery
-            </li>
-          </a>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              Supplies
-            </li>
-          </a>
-          <a href="">
-            <li>
-              <mat-icon>arrow_right</mat-icon>
-              Contact us
-            </li>
-          </a>
-        </ul>
+    </div>
+    <div class="links">
+      <h3>Our Links</h3>
+      <div class="subLinks">
+        <div class="subSubLinks1">
+          <ul>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                Sevices
+              </li>
+            </a>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                About us
+              </li>
+            </a>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                Plumbers
+              </li>
+            </a>
+          </ul>
+        </div>
+        <div class="subSubLinks2">
+          <ul>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                Gallery
+              </li>
+            </a>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                Supplies
+              </li>
+            </a>
+            <a href="">
+              <li>
+                <mat-icon>arrow_right</mat-icon>
+                Contact us
+              </li>
+            </a>
+          </ul>
+        </div>
+
       </div>
-
     </div>
+    <div class="news">
+      <h3>Recent News</h3>
+      <div>
+        <p> Major Pipe Fixed at NCB</p>
+        <P class="spacer timer">
+          <mat-icon>access_alarm</mat-icon>12 August 2022
+        </P>
+      </div>
+      <div>
+        <p> More workers hired for a major project</p>
+        <p class="spacer timer">
+          <mat-icon>access_alarm</mat-icon>12 September 2022
+        </p>
+      </div>
+      <div>
+
+      </div>
+    </div>
+    <div class="letter">
+      <h3>News Letter</h3>
+
+      <div>
+        <p> Join our newsletter to receive updates</p>
+        <form>
+          <p class="spacer timer"> <input type="email"> </p>
+          <button> Subscribe</button>
+        </form>
+      </div>
+    </div>
+
   </div>
-  <div class="news">
-    <h3>Recent News</h3>
-    <div>
-      <p> Major Pipe Fixed at NCB</p>
-      <P class="spacer timer">
-        <mat-icon>access_alarm</mat-icon>12 August 2022
-      </P>
-    </div>
-    <div>
-      <p> More workers hired for a major project</p>
-      <p class="spacer timer">
-        <mat-icon>access_alarm</mat-icon>12 September 2022
-      </p>
-    </div>
-    <div>
+  <div class="copyright">
+    <p>CopyRight 2022 | All rights reserved</p>
 
-    </div>
   </div>
-  <div class="letter">
-    <h3>News Letter</h3>
-
-    <div>
-      <p> Join our newsletter to receive updates</p>
-      <form>
-        <p class="spacer timer"> <input type="email"> </p>
-        <button> Subscribe</button>
-      </form>
-    </div>
-  </div>
-
-</div>
-<div class="copyright">
-  <p>CopyRight 2022 | All rights reserved</p>
-
-</div>
+</footer>

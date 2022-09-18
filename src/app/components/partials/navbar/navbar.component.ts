@@ -14,8 +14,8 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  footerRoute(route: string) {
-    return this.router.url === route
+  targetRoute(route: string) {
+    return this.router.url.includes(route)
   }
 
   logOut() {

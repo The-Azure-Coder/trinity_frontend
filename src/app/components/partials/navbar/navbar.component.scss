@@ -12,6 +12,7 @@
         img{
             width: 125px;
             margin-left: 4rem;
+            cursor: pointer;
         }
 
     }
@@ -207,4 +208,12 @@
         }
     }
 
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }

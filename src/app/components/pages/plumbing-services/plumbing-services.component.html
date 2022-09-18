@@ -12,9 +12,9 @@
       <h2 class="title">{{service.title}}</h2>
       <p class="desc">{{service.description}}</p>
 
-      <h2 class="price">{{service.price | currency}}</h2>
+      <p class="price">{{service.price | currency}}</p>
 
-      <button>Book Service </button>
+      <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/service-detail/{{service._id}}">Book Service </button>
     </div>
   </div>
   <mat-paginator class="pag-color" [length]="length" (page)="getPageWithIndex($event)" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" aria-label="Select page">
