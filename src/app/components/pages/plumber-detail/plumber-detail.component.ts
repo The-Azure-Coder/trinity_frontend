@@ -5,6 +5,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Services } from 'src/app/models/service';
 import { PlumbingServicesService } from 'src/app/services/plumbing-services.service';
+import { RepairService } from 'src/app/services/repair.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -20,18 +21,18 @@ export class PlumberDetailComponent implements OnInit {
   routeSub!: Subscription;
 
   hireForm = new FormGroup({
-    'first_nm': new FormControl('', [Validators.required]),
-    'last_nm': new FormControl('', [Validators.required]),
-    'telephone_num': new FormControl('', [Validators.required]),
+    'firstName': new FormControl('', [Validators.required]),
+    'lastName': new FormControl('', [Validators.required]),
+    'telephone': new FormControl('', [Validators.required]),
     'address': new FormControl('', [Validators.required]),
     'email': new FormControl('', [Validators.required, Validators.email]),
-    'serviceID': new FormControl('', [Validators.required, Validators.email]),
-    'issues': new FormControl('',),
-    'plumberID': new FormControl('', [Validators.required]),
+    'service': new FormControl('', [Validators.required]),
+    'issue': new FormControl('', [Validators.required]),
+    'plumber': new FormControl('', [Validators.required]),
 
   })
 
-  constructor(private plumService: PlumbingServicesService, private plumberService: PlumberService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private plumService: PlumbingServicesService, private plumberService: PlumberService, private repairService: RepairService, private router: Router, private route: ActivatedRoute) { }
 
 
   getPlumberById(id: string): void {
@@ -45,6 +46,25 @@ export class PlumberDetailComponent implements OnInit {
       this.services = plumbingService.data
 
     })
+  }
+
+  hirePlumber() {
+    if (this.hireForm.valid) {
+      console.log(this.hireForm.value)
+      this.repairService.createRepair(this.hireForm.value).subscribe({
+        next: (res) => {
+          alert('plumber hired')
+          this.router.navigate(['/']);
+        },
+        error() {
+          alert('problem hiring a plumber')
+
+        },
+      })
+    } else {
+      alert('invalid form submition')
+    }
+
   }
 
   ngOnInit(): void {

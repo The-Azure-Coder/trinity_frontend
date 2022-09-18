@@ -13,7 +13,7 @@
       </div>
       <div class="plumber-content">
         <h2>{{plumber.name}}</h2>
-        <span>{{plumber.description}}</span>
+        <p>{{plumber.description}}</p>
         <div class="contact">
           <span>
             <label>Email: </label>{{plumber.email}}
@@ -23,24 +23,24 @@
       </div>
     </div>
     <div class="plumber-form">
-      <form [formGroup]="hireForm">
+      <form [formGroup]="hireForm" (submit)="hirePlumber()">
         <div class="name">
           <div class="first">
-            <input type="hidden" name="plumberID" [(ngModel)]="plumber._id" formControlName="plumberID">
+            <input type="hidden" name="plumber" [(ngModel)]="plumber._id" formControlName="plumber">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>First Name</mat-label>
-              <input matInput name="first_nm" formControlName="first_nm" required>
+              <input matInput name="firstName" formControlName="firstName" required>
               <mat-hint>Enter You First Name</mat-hint>
-              <mat-error *ngIf="hireForm.get('first_nm')?.hasError('required')&& hireForm.get('first_nm')?.touched">Your Firstname is required</mat-error>
+              <mat-error *ngIf="hireForm.get('firstName')?.hasError('required')&& hireForm.get('firstName')?.touched">Your Firstname is required</mat-error>
             </mat-form-field>
           </div>
           <div class="sec">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput name="last_nm" formControlName="last_nm" required>
+              <input matInput name="lastName" formControlName="lastName" required>
 
               <mat-hint>Enter You last Name</mat-hint>
-              <mat-error *ngIf="hireForm.get('last_nm')?.hasError('required')&& hireForm.get('last_nm')?.touched">Your lastname is required</mat-error>
+              <mat-error *ngIf="hireForm.get('lastName')?.hasError('required')&& hireForm.get('lastName')?.touched">Your lastname is required</mat-error>
 
             </mat-form-field>
           </div>
@@ -64,10 +64,10 @@
           <div class="num">
             <mat-form-field hideRequiredMarker appearance="outline">
               <mat-label>Phone Number</mat-label>
-              <input matInput formControlName="telephone_num" name="telephone_num" required>
+              <input matInput formControlName="telephone" name="telephone" required>
 
               <mat-hint>Enter phone number</mat-hint>
-              <mat-error *ngIf="hireForm.get('telephone_num')?.hasError('required')&& hireForm.get('telephone_num')?.touched">Phone number required</mat-error>
+              <mat-error *ngIf="hireForm.get('telephone')?.hasError('required')&& hireForm.get('telephone')?.touched">Phone number required</mat-error>
             </mat-form-field>
           </div>
         </div>
@@ -83,17 +83,16 @@
         </mat-form-field>
 
         <mat-form-field hideRequiredMarker class="select-field" appearance="outline">
-          <mat-label>Select a Service</mat-label>
-          <mat-select formControlName="serviceID" name="serviceID">
+          <mat-label>Common Services</mat-label>
+          <mat-select formControlName="service" name="service">
             <mat-option *ngFor="let service of services" value="{{service._id}}">{{service.title}}</mat-option>
           </mat-select>
           <mat-hint>Choose a Service</mat-hint>
-          <mat-error *ngIf="hireForm.get('serviceId')?.hasError('required')&& hireForm.get('serviceId')?.touched">Please Select a Service</mat-error>
         </mat-form-field>
 
         <mat-form-field hideRequiredMarker class="adjust" appearance="outline">
-          <mat-label>Textarea</mat-label>
-          <textarea class="textarea" formControlName="issues" name="issues" rows="8" matInput></textarea>
+          <mat-label>Describe Your issue</mat-label>
+          <textarea class="textarea" formControlName="issue" name="issue" rows="8" matInput></textarea>
         </mat-form-field>
 
         <button class="submit-btn" type="submit">Book Plumber</button>
