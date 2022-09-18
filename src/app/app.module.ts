@@ -20,6 +20,8 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PlumberDetailComponent } from './components/pages/plumber-detail/plumber-detail.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
+import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +32,17 @@ import { MatSelectModule } from '@angular/material/select';
     HomeComponent,
     FooterComponent,
     PlumbingRepairsComponent,
-    PlumberDetailComponent
+    PlumberDetailComponent,
+    PlumbingServicesComponent,
+    ServiceDetailComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule, AppRoutingModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     HttpClientModule,
     MatIconModule,
+    FormsModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
@@ -46,6 +52,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatSelectModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
