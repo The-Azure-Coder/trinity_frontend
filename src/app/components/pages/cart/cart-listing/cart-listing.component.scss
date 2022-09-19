@@ -1,5 +1,12 @@
 .cart {
   padding-top: 3rem;
+
+  .empty-cart-notice {
+    padding: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .section-title {

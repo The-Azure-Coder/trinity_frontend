@@ -1,6 +1,6 @@
 .order-summary {
   padding: 3rem 2rem 3rem 2rem;
-  background-color: #f6f6f6;
+  background-color: #f6f6f678;
   color: #222;
 
   .section-title {
@@ -46,9 +46,13 @@
       align-items: center;
       grid-template-columns: 1fr auto;
       padding: 1rem 0 1rem;
+      font-weight: 500;
 
       h2 {
         margin: 0;
+      }
+      span {
+        font-size: 16px;
       }
     }
   }

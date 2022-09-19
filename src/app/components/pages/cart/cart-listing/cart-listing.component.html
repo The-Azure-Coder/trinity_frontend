@@ -1,9 +1,9 @@
 <section class="cart">
   <div class="section-title">
     <h2>Shopping Cart</h2>
-    <span>3 items</span>
+    <span>{{cart.length}} items</span>
   </div>
-  <table>
+  <table *ngIf="cart.length > 0">
     <tr class="table-header">
       <th class="product-detils-title">Product Details</th>
       <th>Quantity</th>
@@ -48,6 +48,9 @@
       </tr>
     </tbody>
   </table>
+<div *ngIf="cart.length <= 0" class="empty-cart-notice">
+    <span>There are no items in your cart.</span>
+</div>
   <a class="back-link" href="#">
     <svg
       xmlns="http://www.w3.org/2000/svg"
