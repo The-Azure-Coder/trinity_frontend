@@ -7,6 +7,7 @@ import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/pl
 import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 import { RegisterComponent } from './components/pages/register/register.component';
 import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: 'admin',
+    canActivate:[AdminGuard],
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
   },

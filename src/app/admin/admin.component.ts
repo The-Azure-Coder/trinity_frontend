@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  constructor() {}
+  constructor(private route: Router) {}
 
   ngOnInit(): void {}
 
@@ -14,7 +15,8 @@ export class AdminComponent implements OnInit {
    * Logout the admin that's currently logged in
    */
   logoutAdmin(): void {
-    alert(`Logout Not Implemented - admin.component.ts`);
-    // implement code to logout admin
+    localStorage.removeItem('token');
+    localStorage.removeItem('User-Type');
+    this.route.navigate(['/login'])
   }
 }
