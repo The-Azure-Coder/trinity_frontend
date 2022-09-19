@@ -24,6 +24,7 @@ import { PlumberDetailComponent } from './components/pages/plumber-detail/plumbe
 import { MatSelectModule } from '@angular/material/select';
 import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
     PlumbingRepairsComponent,
     PlumberDetailComponent,
     PlumbingServicesComponent,
-    ServiceDetailComponent
+    ServiceDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
