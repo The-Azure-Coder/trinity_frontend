@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import { ApiResponse } from '../models/api-response';
+import { Products } from '../models/product';
 import { ProductService } from './product.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class CartService {
-    constructor(private api: ProductService) {}
+    constructor(private api: ProductService) { }
 
     /**
      * Converts the cart in `localStorage` to an array
@@ -48,7 +50,7 @@ export class CartService {
      */
     addCartItem(itemId: any): void {
         // Get all the products
-        this.api.getProducts().subscribe((resp: any[]) => {
+        this.api.getProducts().subscribe((resp: ApiResponse<Products[]>) => {
             let products = resp;
 
             let currentCart: any[] = [];

@@ -37,8 +37,9 @@ export class PlumberService {
   }
 
 
-  updatePlumber(id: string, body:object): Observable<Plumbers>{
-    return this.http.patch<Plumbers>(`${this.API_URL}/${id}`, body).pipe(
+
+  updatePlumber(id: string, body: object): Observable<ApiResponse<Plumbers>> {
+    return this.http.patch<ApiResponse<Plumbers>>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
       catchError(_error => of(<ApiResponse<Plumbers>>{})),
     );

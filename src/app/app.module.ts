@@ -35,7 +35,7 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
     HomeComponent,
     CartComponent,
     CartListingComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
     FooterComponent,
     PlumbingRepairsComponent,
     PlumberDetailComponent,
@@ -60,4 +60,4 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
