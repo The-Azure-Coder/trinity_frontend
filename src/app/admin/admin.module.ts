@@ -24,6 +24,10 @@ import { AdminCreateServiceModalComponent } from './components/modals/admin-crea
 import { AdminDeleteServiceModalComponent } from './components/modals/admin-delete-service-modal/admin-delete-service-modal.component';
 import { AdminEditServiceModalComponent } from './components/modals/admin-edit-service-modal/admin-edit-service-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AdminCreatePlumberModalComponent } from './components/modals/admin-create-plumber-modal/admin-create-plumber-modal.component';
+import { AdminEditPlumberModalComponent } from './components/modals/admin-edit-plumber-modal/admin-edit-plumber-modal.component';
+import { AdminDeletePlumberModalComponent } from './components/modals/admin-delete-plumber-modal/admin-delete-plumber-modal.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -39,6 +43,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AdminCreateServiceModalComponent,
     AdminDeleteServiceModalComponent,
     AdminEditServiceModalComponent,
+    AdminCreatePlumberModalComponent,
+    AdminEditPlumberModalComponent,
+    AdminDeletePlumberModalComponent,
   ],
   imports: [
     CommonModule,
@@ -54,6 +61,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatSliderModule,
   ],
 })
 export class AdminModule {}

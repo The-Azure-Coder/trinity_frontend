@@ -47,13 +47,10 @@ export class AdminCreateServiceModalComponent implements OnInit, OnDestroy {
 
   plumbingServiceSubscription!: Subscription;
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private plumbingService: PlumbingServicesService
-  ) {}
+  constructor(private plumbingServicesService: PlumbingServicesService) {}
 
   onSubmit(formData: Exclude<Services, '_id'>): void {
-    this.plumbingServiceSubscription = this.plumbingService
+    this.plumbingServiceSubscription = this.plumbingServicesService
       .createService(formData)
       .subscribe({
         next: (res: ApiResponse<Services>) => {

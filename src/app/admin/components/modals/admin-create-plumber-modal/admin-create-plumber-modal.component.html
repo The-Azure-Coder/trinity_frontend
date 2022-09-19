@@ -1,0 +1,89 @@
+<section>
+  <h2>Add Plumber</h2>
+
+  <form #plumberForm="ngForm" (ngSubmit)="onSubmit(plumberForm.value)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input
+          [(ngModel)]="formData.name"
+          name="name"
+          type="text"
+          placeholder="Enter a name here"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input
+          [(ngModel)]="formData.email"
+          name="email"
+          type="text"
+          placeholder="Enter a email address"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Telephone</mat-label>
+        <input
+          [(ngModel)]="formData.telephone"
+          name="telephone"
+          type="number"
+          placeholder="Enter a telphone number"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+    <div class="col-span-2 w-full">
+      <label>Rating</label>
+      <mat-slider
+        [(ngModel)]="formData.rating"
+        [thumbLabel]="true"
+        min="1"
+        max="5"
+        step="0.5"
+        name="rating"
+        [required]="true"
+      >
+      </mat-slider>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          [(ngModel)]="formData.description"
+          name="description"
+          type="text"
+          placeholder="Enter a description"
+          matInput
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Image</mat-label>
+        <textarea
+          [(ngModel)]="formData.image"
+          name="image"
+          type="text"
+          placeholder="Enter a image url"
+          matInput
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <button
+      class="col-span-2 w-full"
+      mat-flat-button
+      type="submit"
+      color="primary"
+    >
+      Create Plumber
+    </button>
+  </form>
+</section>

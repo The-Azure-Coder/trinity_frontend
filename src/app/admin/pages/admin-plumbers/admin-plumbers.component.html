@@ -1,1 +1,39 @@
-<p>admin-plumbers works!</p>
+<div class="admin-banner"></div>
+<section>
+  <div class="sub-header">
+    <span class="title">Plumbers</span>
+    <button (click)="openCreateModal()" class="admin-btn">Add Plumber</button>
+  </div>
+
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Telephone</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let plumber of plumbers$ | async">
+        <td>{{ plumber.name }}</td>
+        <td>{{ plumber.email }}</td>
+        <td>{{ plumber.telephone }}</td>
+        <td>{{ plumber.rating }}</td>
+        <td>{{ plumber.description }}</td>
+        <td>{{ plumber.image }}</td>
+        <td>
+          <div class="controls">
+            <button (click)="openEditModal(plumber)">
+              <img src="/assets/images/edit.png" alt="Edit" />
+            </button>
+            <button (click)="openDeleteModal(plumber._id)">
+              <img src="/assets/images/delete.png" alt="Delete" />
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

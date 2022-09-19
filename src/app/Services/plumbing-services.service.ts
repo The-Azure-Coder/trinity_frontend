@@ -15,16 +15,15 @@ export class PlumbingServicesService {
 
   createService(data: object): Observable<ApiResponse<Services>> {
     return this.http.post<ApiResponse<Services>>(`${this.API_URL}`, data).pipe(
-      tap((newService) => console.log(`${newService}`)),
+      tap((newService) => console.log(newService)),
       catchError((error) => of())
     );
   }
 
   getServices(): Observable<ApiResponse<Services[]>> {
-    return this.http.get<ApiResponse<Services>>(this.API_URL).pipe(
-      tap((allServices: any) => console.log(allServices)),
-      catchError((error) => of(<ApiResponse<Services[]>>{}))
-    );
+    return this.http
+      .get<ApiResponse<Services[]>>(this.API_URL)
+      .pipe(catchError((_error) => of(<ApiResponse<Services[]>>{})));
   }
 
   getServicesById(id: string): Observable<ApiResponse<Services>> {
@@ -47,7 +46,7 @@ export class PlumbingServicesService {
     return this.http
       .delete<ApiResponse<Services>>(`${this.API_URL}/${id}`)
       .pipe(
-        tap((deletedService) => console.log(`${deletedService}`)),
+        tap((deletedService) => console.log(deletedService)),
         catchError((error) => of(<ApiResponse<Services>>{}))
       );
   }
