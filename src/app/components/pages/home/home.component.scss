@@ -262,6 +262,15 @@
     height: 25rem;
     background-repeat: none;
   }
+
+  .no-resource{
+    display: flex;
+  justify-content: center;
+
+  h2{
+    text-align: center;
+  }
+  }
   
   .showcase {
     background-color: #fefefe;

@@ -52,7 +52,16 @@
     </p>
     <button [ngStyle]="{'cursor': 'pointer'}" routerLink="services">View More</button>
   </div>
-  <div class="service-con">
+
+
+  <div [ngStyle]="{'margin-left': '10rem'}" *ngIf="!services.length" class="no-resource">
+    <div class="div">
+      <img src="/assets/images/no-results.jpg" alt="">
+      <h2>No Services to show</h2>
+    </div>
+  </div>
+
+  <div *ngIf="services.length > 0" class="service-con">
     <div *ngFor="let service of services" class="service-imgs">
       <div class="slide-up four col">
         <div class="box">
@@ -77,52 +86,72 @@
   <h1 class="half-underline">Top Products</h1>
 </div>
 
-<div id="supplies" class="showcase">
-  <div *ngFor="let product of products" class="travel-card">
-    <div class="image">
-      <img src="{{product.image}}" />
-    </div>
-    <div class="content">
-      <label class="category">{{product.name}}</label>
-      <h1 class="topic">
-        {{product.description}}
-      </h1>
-      <div class="recommendation">
-        <div class="score">
-          <span>{{product.rating}}</span>
-          <i class="material-icons"> <i class="fas fa-star"></i></i>
-        </div>
-        <div class="comment"></div>
-      </div>
-      <div class="price">
-        <div class="discount-info">save up to 30% off</div>
-        <div class="original-price">{{product.price | currency}}</div>
-      </div>
-      <div class="btn">
-        <button [ngStyle]="{'cursor': 'pointer'}" type="submit" class="prolink">Add to Cart</button>
-      </div>
-    </div>
+<div *ngIf="!products.length" class="no-resource">
+  <div class="div">
+    <img src="/assets/images/no-results.jpg" alt="">
+    <h2>No Products to show</h2>
   </div>
 </div>
 
-<button [ngStyle]="{'cursor': 'pointer'}" routerLink="/products" class="more-btn">View More</button>
 
+<div *ngIf="products.length > 0" class="products">
+  <div id="supplies" class="showcase">
+    <div *ngFor="let product of products" class="travel-card">
+      <div class="image">
+        <img src="{{product.image}}" />
+      </div>
+      <div class="content">
+        <label class="category">{{product.name}}</label>
+        <h1 class="topic">
+          {{product.description}}
+        </h1>
+        <div class="recommendation">
+          <div class="score">
+            <span>{{product.rating}}</span>
+            <i class="material-icons"> <i class="fas fa-star"></i></i>
+          </div>
+          <div class="comment"></div>
+        </div>
+        <div class="price">
+          <div class="discount-info">save up to 30% off</div>
+          <div class="original-price">{{product.price | currency}}</div>
+        </div>
+        <div class="btn">
+          <button [ngStyle]="{'cursor': 'pointer'}" type="submit" class="prolink">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/products" class="more-btn">View More</button>
+</div>
 
 <div class="plumber-head">
   <h2 id="plumbers" class="half-underline">Our Staff</h2>
 </div>
-<div class="plumber">
-  <figure *ngFor="let plumber of plumbers" class="snip1515">
-    <div class="profile-image"><img src="{{plumber.image}}" alt="sample47" /></div>
-    <figcaption>
-      <h3>{{plumber.name}}</h3>
-      <h4>Plumber</h4>
-      <p>{{plumber.description}}</p>
-      <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/plumbers-details/{{plumber._id}}" class="hire-btn">Hire Now</button>
-    </figcaption>
-  </figure>
+
+<div *ngIf="!plumbers.length" class="no-resource">
+  <div class="div">
+    <img src="/assets/images/no-results.jpg" alt="">
+    <h2>No Plumbers to show</h2>
+  </div>
 </div>
-<mat-paginator class="pag-adjust" [length]="length2" (page)="getPageWithIndex2($event)" [pageSize]="pageSize2" [pageSizeOptions]="pageSizeOptions2" aria-label="Select page"> </mat-paginator>
+
+<div *ngIf="plumbers.length > 0" class="plumber-con">
+  <div class="plumber">
+    <figure *ngFor="let plumber of plumbers" class="snip1515">
+      <div class="profile-image"><img src="{{plumber.image}}" alt="sample47" /></div>
+      <figcaption>
+        <h3>{{plumber.name}}</h3>
+        <h4>Plumber</h4>
+        <p>{{plumber.description}}</p>
+        <button [ngStyle]="{'cursor': 'pointer'}" routerLink="/plumbers-details/{{plumber._id}}" class="hire-btn">Hire Now</button>
+      </figcaption>
+    </figure>
+  </div>
+  <mat-paginator class="pag-adjust" [length]="length2" (page)="getPageWithIndex2($event)" [pageSize]="pageSize2" [pageSizeOptions]="pageSizeOptions2" aria-label="Select page"> </mat-paginator>
+</div>
+
 
 <h2 id="contact" class="contactus">Contact US</h2>
 

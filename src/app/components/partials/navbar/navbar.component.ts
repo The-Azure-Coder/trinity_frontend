@@ -20,13 +20,13 @@ export class NavbarComponent implements OnInit {
 
   logOut() {
     alert('You are logged out')
-    // localStorage.removeItem('auth')
-    // this.router.navigate(['/']);
-    // this.authenticated = this.isLoggedIn();
+    localStorage.removeItem('token')
+    this.router.navigate(['/']);
+    this.authenticated = this.isLoggedIn();
   }
 
   isLoggedIn() {
-    if (localStorage.getItem('auth')) {
+    if (localStorage.getItem('token')) {
       // console.log()
       return true
     } else {
