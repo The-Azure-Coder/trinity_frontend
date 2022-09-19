@@ -1,0 +1,64 @@
+<section class="cart">
+  <div class="section-title">
+    <h2>Shopping Cart</h2>
+    <span>3 items</span>
+  </div>
+  <table>
+    <tr class="table-header">
+      <th class="product-detils-title">Product Details</th>
+      <th>Quantity</th>
+      <th>Price</th>
+      <th>Total</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let cItem of cart">
+        <td class="product-details">
+          <div class="product-image">
+            <img src="{{ cItem.imageUrl }}" alt="" height="100" width="100" />
+          </div>
+          <div class="product-information">
+            <div class="product-title">
+              <span>{{ cItem.name }}</span>
+            </div>
+            <div class="product-description">
+              <p>{{ cItem.description }}</p>
+            </div>
+            <div class="product-remove">
+              <span (click)="deleteProduct(cItem.id)">Remove</span>
+            </div>
+          </div>
+        </td>
+        <td class="product-quantity">
+          <div class="quantity-control">
+            <button>-</button>
+            <input
+              type="number"
+              value="{{ cItem.amount }}"
+              (change)="amountChanged($event, cItem.id)"
+            />
+            <button>+</button>
+          </div>
+        </td>
+        <td class="product-price">
+          <span> {{ cItem.price | currency }}</span>
+        </td>
+        <td class="product-total">
+          <span>{{ cItem.price * cItem.amount | currency }}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a class="back-link" href="#">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 0 24 24"
+      width="24px"
+      fill="#000000"
+    >
+      <path d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 9V5l-7 7 7 7v-4.1c5 0 8.5 1.6 11 5.1-1-5-4-10-11-11z" />
+    </svg>
+    Continue Shopping</a
+  >
+</section>

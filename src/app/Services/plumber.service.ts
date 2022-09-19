@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Plumbers } from '../Models/plumber';
+import { Plumbers } from '../models/plumber';
 import { environment } from 'src/environments/environment';
 import { Observable, of, catchError, map, tap } from 'rxjs';
-import { Products } from '../Models/product';
+import { Products } from '../models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class PlumberService {
       catchError(error => of(new Plumbers())),
     );
   }
-   
+
   updatePlumber(id: string, body:object): Observable<Plumbers>{
     return this.http.patch<Plumbers>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),

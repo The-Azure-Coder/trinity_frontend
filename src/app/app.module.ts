@@ -15,6 +15,9 @@ import { NavbarComponent } from './components/partials/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CartComponent } from './components/pages/cart/cart.component';
+import { CartListingComponent } from './components/pages/cart/cart-listing/cart-listing.component';
+import { OrderSummaryComponent } from './components/pages/cart/order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { MatButtonModule } from '@angular/material/button';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    CartComponent,
+    CartListingComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
