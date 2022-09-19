@@ -1,0 +1,16 @@
+<mat-dialog-content class="mat-typography">
+  <h2 mat-dialog-title>Are you sure you want to delete?</h2>
+  <p><em>Note:</em> This action is ireversable.</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-flat-button
+    [mat-dialog-close]="true"
+    color="warn"
+    cdkFocusInitial
+    (click)="deleteService()"
+  >
+    Delete
+  </button>
+</mat-dialog-actions>
