@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
           alert('User Logged in successfully')
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('User-Type', res.data.user['role']);
+          this.router.navigate(['/home'])
         }else if(res && res.data['token'] && res.data.user['role'] == 'admin') {
           alert('Admin Logged in successfully')
           localStorage.setItem('token', res.data.token);
