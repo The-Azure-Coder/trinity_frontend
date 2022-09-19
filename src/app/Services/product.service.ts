@@ -15,7 +15,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   createproduct(data: object): Observable<ApiResponse<Products>> {
-    return this.http.post<ApiResponse<Products>> (`${this.API_URL}`, data).pipe(
+    return this.http.post<ApiResponse<Products>>(`${this.API_URL}`, data).pipe(
       tap(newProduct => console.log(`${newProduct}`)),
       catchError(error => of())
     );
@@ -28,14 +28,14 @@ export class ProductService {
     );
   }
 
-  getMessageById(id: string): Observable<ApiResponse<Products>> {
+  getProductById(id: string): Observable<ApiResponse<Products>> {
     return this.http.get<ApiResponse<Products>>(`${this.API_URL}/${id}`).pipe(
       tap((selectedmessage: any) => console.log(`${selectedmessage}`)),
       catchError((error) => of(<ApiResponse<Products>>{}))
     );
   }
 
-  updateProduct(id: string, body: object): Observable<ApiResponse<Products>>{
+  updateProduct(id: string, body: object): Observable<ApiResponse<Products>> {
     return this.http.patch<ApiResponse<Products>>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
       catchError(error => of(<ApiResponse<Products>>{})),
