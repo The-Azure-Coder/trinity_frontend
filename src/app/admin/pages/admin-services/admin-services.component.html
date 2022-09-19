@@ -1,0 +1,30 @@
+<div class="admin-banner"></div>
+<section>
+  <div class="sub-header">
+    <span class="title">Services</span>
+    <button (click)="openCreateModal()" class="admin-btn">Add Service</button>
+  </div>
+
+  <div class="cards">
+    <div class="card" *ngFor="let service of services$ | async">
+      <img [src]="service.image" />
+      <div class="title">{{ service.title }}</div>
+      <div class="desc">
+        {{ service.description | slice: 0:100 }}
+        {{ service.description.length > 100 ? "..." : undefined }}
+      </div>
+      <div class="price">
+        <div class="price-title">Price</div>
+        <div class="price-value">{{ service.price | currency: "USD" }}</div>
+      </div>
+      <div class="controls">
+        <button (click)="openEditModal(service)">
+          <img src="/assets/images/edit.png" alt="Edit" />
+        </button>
+        <button (click)="openDeleteModal(service._id)">
+          <img src="/assets/images/delete.png" alt="Delete" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

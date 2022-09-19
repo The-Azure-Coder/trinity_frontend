@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Users } from '../models/user';
 import { environment } from 'src/environments/environment';
 import { Observable, of, catchError, map, tap } from 'rxjs';
+import { ApiResponse } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -13,39 +14,39 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  createUser(data: object): Observable<Users> {
-    return this.http.post<Users>(`${this.API_URL}`, data).pipe(
+  createUser(data: object): Observable<ApiResponse<Users>>{
+    return this.http.post<ApiResponse<Users>>(`${this.API_URL}`, data).pipe(
       tap(newUser => console.log(`${newUser}`)),
       catchError(error => of())
     );
   }
 
-  getUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(this.API_URL).pipe(
+  getUsers(): Observable<ApiResponse<Users[]>> {
+    return this.http.get<ApiResponse<Users>>(this.API_URL).pipe(
       tap((allUsers: any) => console.log(`${allUsers}`)),
-      catchError(error => of([])),
+      catchError(error => of(<ApiResponse<Users[]>>{}))
     );
   }
 
-  getUserById(id: string): Observable<Users | any> {
-    return this.http.get<Users>(`${this.API_URL}/${id}`).pipe(
+  getUserById(id: string): Observable<ApiResponse<Users>> {
+    return this.http.get<ApiResponse<Users>>(`${this.API_URL}/${id}`).pipe(
       tap(selectedUser => console.log(`${selectedUser}`)),
-      catchError(error => of(new Users())),
+      catchError(error => of(<ApiResponse<Users>>{})),
     );
   }
 
 
-  updateUser(id: string, body: object): Observable<Users> {
-    return this.http.patch<Users>(`${this.API_URL}/${id}`, body).pipe(
+  updateUser(id: string, body: object): Observable<ApiResponse<Users>> {
+    return this.http.patch<ApiResponse<Users>>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
-      catchError(error => of(new Users())),
+      catchError(error => of(<ApiResponse<Users>>{})),
     );
   }
 
-  deleteUser(id: string): Observable<Users> {
-    return this.http.delete<Users>(`${this.API_URL}/${id}`).pipe(
+  deleteUser(id: string): Observable<ApiResponse<Users>> {
+    return this.http.delete<ApiResponse<Users>>(`${this.API_URL}/${id}`).pipe(
       tap(deletedUser => console.log(`${deletedUser}`)),
-      catchError(error => of())
+      catchError(error => of(<ApiResponse<Users>>{}))
     );
   }
 

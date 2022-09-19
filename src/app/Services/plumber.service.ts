@@ -4,6 +4,7 @@ import { Plumbers } from '../models/plumber';
 import { environment } from 'src/environments/environment';
 import { Observable, of, catchError, map, tap } from 'rxjs';
 import { Products } from '../models/product';
+import { ApiResponse } from '../models/api-response';
 
 @Injectable({
   providedIn: 'root'
@@ -14,38 +15,48 @@ export class PlumberService {
 
   constructor(private http: HttpClient) { }
 
-  addPlumber(data:object):Observable<Plumbers>{
-    return this.http.post<Plumbers>(`${this.API_URL}`, data).pipe(
-      tap( newPlumber => console.log(`${newPlumber}`)),
-      catchError( error => of())
+  addPlumber(data: object): Observable<ApiResponse<Plumbers>> {
+    return this.http.post<ApiResponse<Plumbers>>(`${this.API_URL}`, data).pipe(
+      tap(newPlumber => console.log(`${newPlumber}`)),
+      catchError(_error => of())
     );
   }
 
-  getAllPlumbers(): Observable<Plumbers[]>{
-    return this.http.get<Plumbers[]>(this.API_URL).pipe(
+  getAllPlumbers(): Observable<ApiResponse<Plumbers[]>> {
+    return this.http.get<ApiResponse<Plumbers>>(this.API_URL).pipe(
       tap((plumbers: any) => console.log(`${plumbers}`)),
-      catchError(error => of([])),
+      catchError(_error => of(<ApiResponse<Plumbers[]>>{})),
     );
   }
 
-  getPlumberById(id: string):Observable<Plumbers | any>{
-    return this.http.get<Plumbers>(`${this.API_URL}/${id}`).pipe(
+  getPlumberById(id: string): Observable<ApiResponse<Plumbers>> {
+    return this.http.get<ApiResponse<Plumbers>>(`${this.API_URL}/${id}`).pipe(
       tap(selectedplumber => console.log(`${selectedplumber}`)),
-      catchError(error => of(new Plumbers())),
+      catchError(_error => of(<ApiResponse<Plumbers>>{})),
     );
   }
+
 
   updatePlumber(id: string, body:object): Observable<Plumbers>{
     return this.http.patch<Plumbers>(`${this.API_URL}/${id}`, body).pipe(
       tap(updatedRecord => console.log(`${updatedRecord}`)),
-      catchError(error => of(new Plumbers())),
+      catchError(_error => of(<ApiResponse<Plumbers>>{})),
     );
   }
 
-  deleteMessage(id:string):Observable<Plumbers>{
-    return this.http.delete<Plumbers>(`${this.API_URL}/${id}`).pipe(
-      tap( deletedplumber => console.log(`${deletedplumber}`)),
-      catchError( error => of())
+  deleteMessage(id: string): Observable<ApiResponse<Plumbers>> {
+    return this.http.delete<ApiResponse<Plumbers>>(`${this.API_URL}/${id}`).pipe(
+      tap(deletedplumber => console.log(`${deletedplumber}`)),
+      catchError(_error => of(<ApiResponse<Plumbers>>{}))
+    );
+  }
+
+  getLimitedPlumbers(
+    page = 1,
+    limit = 20
+  ): Observable<ApiResponse<Plumbers[]>> {
+    return this.http.get<ApiResponse<Plumbers[]>>(
+      this.API_URL + '?_page=' + page + '&_limit=' + limit
     );
   }
 

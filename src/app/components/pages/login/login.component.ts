@@ -25,14 +25,18 @@ export class LoginComponent implements OnInit {
   onSubmit(body: object): void {
     this.authenticate.loginUser(body).subscribe({
       next: (res: any) => {
-        if (res && res.data['token'] && res.data.user['role'] == 'user') {
+        if(res && res.data['token'] && res.data.user['role'] == 'user'){
           alert('User Logged in successfully')
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('User-Type', res.data.user['role']);
-        } else if (res && res.data['token'] && res.data.user['role'] == 'admin') {
+          this.router.navigate(['/home'])
+        }else if(res && res.data['token'] && res.data.user['role'] == 'admin') {
           alert('Admin Logged in successfully')
           localStorage.setItem('token', res.data.token);
           localStorage.setItem('User-Type', res.data.user['role']);
+          this.router.navigate(['/admin'])
+        }else{
+          alert('User Not Found');
         }
       },
       error: () => {

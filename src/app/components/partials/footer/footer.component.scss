@@ -1,0 +1,142 @@
+.mainFooter{
+    padding-top: 30px;
+    background-color:#356A8F;
+    justify-content: space-around;
+    align-items: center;
+    height: 19rem;
+
+    display:flex;
+    color:white
+  
+  }
+  .mainFooter .main4 {
+    // width: 25%;
+
+    p{
+        mat-icon{
+            font-size: 1.2rem;
+            position: relative;
+            top: 2px;
+            color: #95D3FF;
+        }
+    }
+  
+  }
+  
+
+  .logo  img {  
+    margin-bottom: .4rem;
+  }
+  
+  
+  
+  .main4 .text{
+    width:300px;
+    padding-top: .5rem;
+  
+  
+  }
+  .main4 .contact {
+    // text-align: left;
+    // margin-left: 50px;
+  }
+  
+  
+  
+  //Links CSS I just figured out how to use nests with SCSS styles
+  .links {
+    margin-top: 2rem;
+
+    h3{
+        margin-left: 1rem;
+        
+    }
+
+    a{}
+
+    mat-icon{
+        position: relative;
+        top: 6px;
+        left: 5px;
+        color: #95D3FF;
+    }
+  
+    // margin-top: 150px;
+   
+  }
+  
+  .subLinks {
+    display: flex;
+
+
+    a{
+        color: #fff;
+    }
+    .subSubLinks1{
+        margin-right: 1.1rem;
+
+       
+    }
+   
+  }
+  
+  
+  //NEWS PART
+  .news {
+    margin-top: 5.2rem;
+
+    mat-icon{
+        position: relative;
+        font-size: 20px;
+        top: 6px;
+       
+        color: #95D3FF;
+    }
+
+  }
+  
+  //NEWS LETTER
+  .letter {
+    margin-top: 5rem;
+
+    p{
+        width: 12rem;
+       
+    }
+
+    input{
+        border: none;
+        outline: none;
+        padding: 10px;
+        width: 12rem;
+        background-color: #3374A4;
+    }
+
+    button{
+        background-color: #66C0FF;
+        outline: none;
+        border: none;
+        padding: 10px;
+        width: 13rem;
+        color: #fff;
+        margin-top: .8rem;
+    }
+  
+  }
+
+  .copyright{
+    display: flex;
+    justify-content: center;
+    background-color: #274D67;
+    color: #fff;
+    
+    padding-top: 1rem;
+  }
+
+  .hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
