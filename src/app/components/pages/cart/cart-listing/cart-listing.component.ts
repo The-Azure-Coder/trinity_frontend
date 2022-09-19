@@ -7,7 +7,7 @@ import { CartService } from '../../../../services/cart.service';
   styleUrls: ['./cart-listing.component.scss'],
 })
 export class CartListingComponent implements OnInit {
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService) { }
   cart!: any[];
   grandTotal: number = 0;
 
@@ -17,7 +17,7 @@ export class CartListingComponent implements OnInit {
 
   ngAfterViewInit(): void {
     setTimeout(
-      () => (this.grandTotal = this.cartService.getCartTotal(this.cart)),
+      () => (this.grandTotal = this.cartService.getCartTotal()),
       0
     );
   }
@@ -28,13 +28,13 @@ export class CartListingComponent implements OnInit {
     );
 
     this.cartService.updateCart(this.cart);
-    this.grandTotal = this.cartService.getCartTotal(this.cart);
+    this.grandTotal = this.cartService.getCartTotal();
   }
 
   deleteProduct(product_id: number) {
     this.cartService.updateCart(this.cartService.removeCartItem(product_id));
 
     this.cart = this.cartService.getCart() ?? [];
-    this.grandTotal = this.cartService.getCartTotal(this.cart);
+    this.grandTotal = this.cartService.getCartTotal();
   }
 }
