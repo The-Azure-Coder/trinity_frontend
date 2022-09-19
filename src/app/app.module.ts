@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/login/login.component';
@@ -15,6 +14,9 @@ import { NavbarComponent } from './components/partials/navbar/navbar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { HomeComponent } from './components/pages/home/home.component';
 import { MatButtonModule } from '@angular/material/button';
+import { CartComponent } from './components/pages/cart/cart.component';
+import { CartListingComponent } from './components/pages/cart/cart-listing/cart-listing.component';
+import { OrderSummaryComponent } from './components/pages/cart/order-summary/order-summary.component';
 import { FooterComponent } from './components/partials/footer/footer.component';
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -23,6 +25,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +33,9 @@ import { ServiceDetailComponent } from './components/pages/service-detail/servic
     RegisterComponent,
     NavbarComponent,
     HomeComponent,
+    CartComponent,
+    CartListingComponent,
+    OrderSummaryComponent
     FooterComponent,
     PlumbingRepairsComponent,
     PlumberDetailComponent,

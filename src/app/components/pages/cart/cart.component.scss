@@ -1,0 +1,23 @@
+section {
+  width: 100%;
+  height: auto;
+  padding-top: 2rem;
+
+  .section-wrapper {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    grid-gap: 2rem;
+
+    .col-1 {
+      grid-column: 1;
+
+    }
+
+    .col-2 {
+      grid-column: 2;
+    }
+  }
+}
