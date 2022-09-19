@@ -20,6 +20,10 @@ import { AdminTableComponent } from './components/admin-table/admin-table.compon
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { AdminCreateServiceModalComponent } from './components/modals/admin-create-service-modal/admin-create-service-modal.component';
+import { AdminDeleteServiceModalComponent } from './components/modals/admin-delete-service-modal/admin-delete-service-modal.component';
+import { AdminEditServiceModalComponent } from './components/modals/admin-edit-service-modal/admin-edit-service-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,9 @@ import { MatSortModule } from '@angular/material/sort';
     AdminJobsComponent,
     AdminNotFoundComponent,
     AdminTableComponent,
+    AdminCreateServiceModalComponent,
+    AdminDeleteServiceModalComponent,
+    AdminEditServiceModalComponent,
   ],
   imports: [
     CommonModule,
@@ -46,6 +53,7 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDialogModule,
   ],
 })
 export class AdminModule {}

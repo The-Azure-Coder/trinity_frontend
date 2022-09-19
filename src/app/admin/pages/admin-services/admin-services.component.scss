@@ -1,0 +1,120 @@
+@import "../../../../colors.scss";
+
+.admin-banner {
+  margin-inline: -$outlet-padding;
+  margin-top: -$outlet-padding;
+  margin-bottom: $outlet-padding;
+  height: 250px;
+  background-image: url("/assets/images/services-admin.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+section {
+  width: 80%;
+  margin-inline: auto;
+  margin-bottom: 1.2rem;
+
+  .sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+
+    .title {
+      color: $text-dim-1;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .admin-btn {
+      padding: 10px 30px;
+      background-color: $primary;
+      color: white;
+      border: 0;
+      border-radius: 0.3rem;
+      cursor: pointer;
+      transition: all 200ms ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+
+    .title,
+    .desc,
+    .price,
+    .controls {
+      margin-inline: 1.2rem;
+    }
+
+    .title {
+      font-weight: bold;
+      color: $text-dim-1;
+      margin-block: 1rem;
+    }
+
+    .desc {
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      margin-top: auto;
+      font-weight: 580;
+
+      &-title {
+        color: #05d1ed;
+      }
+
+      &-value {
+        color: #f89500;
+      }
+    }
+
+    .controls {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+
+      button {
+        border: 0;
+        background-color: transparent;
+        padding: 5px 10px;
+        margin-left: 5px;
+        cursor: pointer;
+        transition: all 200ms ease;
+
+        &:hover {
+          transform: scale(1.5);
+        }
+
+        img {
+          $size: 18px;
+          width: $size;
+          height: $size;
+        }
+      }
+    }
+
+    img {
+      width: 100%;
+      height: 185px;
+      object-fit: cover;
+    }
+  }
+}

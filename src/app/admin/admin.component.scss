@@ -1,6 +1,6 @@
-@import "./colors.scss";
+@import "../../colors.scss";
 
-@mixin small_pic($size) {
+@mixin squareImage($size) {
   width: $size;
   height: $size;
 
@@ -37,7 +37,7 @@
   .logout-btn {
     display: flex;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px;
     color: white;
     background-color: transparent;
     border: 0;
@@ -106,15 +106,19 @@
 }
 
 .small-pic {
-  @include small_pic(30px);
+  @include squareImage(30px);
 }
 
 .profile-pic {
   margin-left: 10px;
 
-  @include small_pic(30px);
+  @include squareImage(30px);
 
   img {
     border-radius: 100px;
   }
+}
+
+.outlet-padding {
+  padding: $outlet-padding;
 }
