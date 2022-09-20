@@ -1,0 +1,69 @@
+<div style="margin-bottom:5rem">
+<div class="home">
+  <div class="home-background">
+    <div class="overlay"></div>
+    <div class="home-heading">
+      <div>
+        <h2 class="primary"><span class="cl1">Plumbing</span> Supplies</h2>
+
+        <p>The definition of Quality</p>
+        <div class="home-btn">
+          <!-- <input class="btn1">
+          <button type="submit" class="srch1"><i class="fa fa-search" style="font-size:1.4rem"></i></button> -->
+          <div class="wrap">
+            <div class="search">
+               <input type="text" class="searchTerm" placeholder="What are you looking for?" [(ngModel)]="searchQuery">
+               <button (click)="searchbyid(searchQuery.value)" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="heading">
+  <h1 class="half-underline">Top Products</h1>
+</div>
+
+<div class="showcase">
+  <div *ngFor="let product of products" class="travel-card">
+    <div class="image">
+      <img src="{{product.image}}" />
+    </div>
+    <div class="content">
+      <label class="category">{{product.name}}</label>
+      <h1 class="topic">
+        {{product.description}}
+      </h1>
+      <div class="recommendation">
+        <div class="score">
+          <span>{{product.rating}}</span>
+          <i class="material-icons"> <i class="fas fa-star"></i></i>
+        </div>
+        <div class="comment"></div>
+      </div>
+      <div class="price">
+        <div class="discount-info">save up to 30% off</div>
+        <div class="original-price">{{product.price | currency}}</div>
+      </div>
+      <div class="btn">
+        <button type="submit" class="prolink">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-paginator class="pag-color" [length]="length" (page)="getPageWithIndex($event)" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" aria-label="Select page">
+</mat-paginator>
+
+<!-- <button routerLink="/products" class="more-btn">View More</button> -->
+</div>
+<div class="inspection">
+  <div class="textbox">
+   <p>
+  head over to our Services page for more</p><p style="margin-left:2rem">  about the services we provide
+   </p>
+   <button class="inspectionbtn">View Services</button>
+  </div>
+</div>

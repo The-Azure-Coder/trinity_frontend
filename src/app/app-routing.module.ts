@@ -1,3 +1,4 @@
+import { ProductsDashboardComponent } from './products-dashboard/products-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/pages/home/home.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'products', component: ProductsDashboardComponent},
 
 ];
 
