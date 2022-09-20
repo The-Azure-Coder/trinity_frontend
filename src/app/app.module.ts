@@ -26,6 +26,7 @@ import { PlumbingServicesComponent } from './components/pages/plumbing-services/
 import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 
+import { ProductsDashboardComponent } from './products-dashboard/products-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
     PlumberDetailComponent,
     PlumbingServicesComponent,
     ServiceDetailComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +56,7 @@ import { NotFoundComponent } from './components/pages/not-found/not-found.compon
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    FormsModule,
     MatMenuModule,
     MatButtonModule,
     MatPaginatorModule,

@@ -30,7 +30,13 @@ export class ProductService {
 
   getProductById(id: string): Observable<ApiResponse<Products>> {
     return this.http.get<ApiResponse<Products>>(`${this.API_URL}/${id}`).pipe(
-      tap((selectedmessage: any) => console.log(`${selectedmessage}`)),
+      tap((product: any) => console.log(`${product}`)),
+      catchError((error) => of(<ApiResponse<Products>>{}))
+    );
+  }
+  getProductByName(name: string): Observable<ApiResponse<Products>> {
+    return this.http.get<ApiResponse<Products>>(`${this.API_URL}/${name}`).pipe(
+      tap((product: any) => console.log(`${product}`)),
       catchError((error) => of(<ApiResponse<Products>>{}))
     );
   }
@@ -48,4 +54,14 @@ export class ProductService {
       catchError(error => of(<ApiResponse<Products>>{}))
     );
   }
+
+  getLimitedProducts(
+    page = 1,
+    limit = 20
+  ): Observable<ApiResponse<Products[]>> {
+    return this.http.get<ApiResponse<Products[]>>(
+      this.API_URL + '?_page=' + page + '&_limit=' + limit
+    );
+  }
+
 }

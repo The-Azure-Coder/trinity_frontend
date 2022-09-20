@@ -1,3 +1,4 @@
+import { ProductsDashboardComponent } from './products-dashboard/products-dashboard.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CartComponent } from './components/pages/cart/cart.component';
@@ -8,13 +9,26 @@ import { PlumberDetailComponent } from './components/pages/plumber-detail/plumbe
 import { PlumbingRepairsComponent } from './components/pages/plumbing-repairs/plumbing-repairs.component';
 import { PlumbingServicesComponent } from './components/pages/plumbing-services/plumbing-services.component';
 import { RegisterComponent } from './components/pages/register/register.component';
-import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 import { AdminGuard } from './guards/admin.guard';
+import { ServiceDetailComponent } from './components/pages/service-detail/service-detail.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'cart', component: CartComponent },
+  {
+    path: 'admin',
+    canActivate: [AdminGuard],
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  { path: 'plumbers-details/:id', component: PlumberDetailComponent },
+  { path: 'service-detail/:id', component: ServiceDetailComponent },
+  { path: 'services', component: PlumbingServicesComponent },
+  { path: 'plumbing-repairs', component: PlumbingRepairsComponent },
+  { path: '**', component: NotFoundComponent },
+  { path: 'products', component: ProductsDashboardComponent},
   { path: 'cart', component: CartComponent },
   {
     path: 'admin',
