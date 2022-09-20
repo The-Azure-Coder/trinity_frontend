@@ -29,8 +29,8 @@
     font-size: 15px;
 }
 
-.form-content form .plumber, .form-content form .issues,
-.form-content form .message{
+.form-content form .address, .form-content form .plumber, 
+.form-content form .issues,.form-content form .message{
     display: grid;
     grid-template-columns: 100%;
 }

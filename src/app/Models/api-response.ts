@@ -1,6 +1,6 @@
 export interface ApiResponse<T> {
   /**
-   * Commonly used to check if the request to the server is successfull
+   * Commonly used to check if the request to the server is successful
    */
   success: boolean;
   /**
@@ -12,7 +12,7 @@ export interface ApiResponse<T> {
    */
   message: string;
   /**
-   * A generic object being returned from the server
+   * Data being returned from the server
    */
   data: T;
 }

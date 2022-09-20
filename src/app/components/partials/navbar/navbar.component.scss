@@ -12,6 +12,7 @@
         img{
             width: 125px;
             margin-left: 4rem;
+            cursor: pointer;
         }
 
     }
@@ -29,7 +30,7 @@
     }
 
     .nav-register{
-        margin-left: 20%;
+        margin-left: 28%;
       
         span{
             color: #fff;
@@ -55,6 +56,7 @@
     display: flex;
     background-color: #fff;
     &-heading {
+        margin-right: 4rem;
         h1 {
             font-family: 'Italianno', cursive;
             font-size: 2.5rem;
@@ -67,11 +69,12 @@
             margin-top: -8px;
             margin-left: 2rem;
         }
+
     }
 
     .location {
         display: flex;
-        margin-left: 6rem;
+        margin-right: 4rem;
 
         .location-image {
 
@@ -83,7 +86,7 @@
         }
 
         .location-content {
-            margin-left: .9rem;
+           
 
             span {
                 display: block;
@@ -100,9 +103,9 @@
 
     .sign {
         display: flex;
-        margin-left: 6rem;
-
-        .sign-image {
+        margin-right: 4rem;
+             .sign-image {
+              
             img {
                 width: 50px;
             }
@@ -127,7 +130,7 @@
 
     .contact {
         display: flex;
-        margin-left: 6rem;
+        margin-right: 4rem;
 
         .contact-image {
             img {
@@ -150,9 +153,37 @@
                 padding-top: 5px;
             }
         }
-
-
     }
+
+    .clock {
+        display: flex;
+        margin-right: 4rem;
+
+        .clock-image {
+            img {
+                width: 50px;
+            }
+        }
+
+        .clock-content {
+            margin-left: .9rem;
+
+            span {
+                display: block;
+                margin-top: .2rem;
+                margin-bottom: .2rem;
+            }
+
+
+            .bor {
+                border-top: 1px dotted black;
+                padding-top: 5px;
+            }
+        }
+    }
+
+
+    
 
 }
 
@@ -207,4 +238,12 @@
         }
     }
 
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }

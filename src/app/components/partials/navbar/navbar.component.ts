@@ -14,19 +14,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  footerRoute(route: string) {
-    return this.router.url === route
+  targetRoute(route: string) {
+    return this.router.url.includes(route)
   }
 
   logOut() {
     alert('You are logged out')
-    // localStorage.removeItem('auth')
-    // this.router.navigate(['/']);
-    // this.authenticated = this.isLoggedIn();
+    localStorage.removeItem('token')
+    this.router.navigate(['/']);
+    this.authenticated = this.isLoggedIn();
   }
 
   isLoggedIn() {
-    if (localStorage.getItem('auth')) {
+    if (localStorage.getItem('token')) {
       // console.log()
       return true
     } else {

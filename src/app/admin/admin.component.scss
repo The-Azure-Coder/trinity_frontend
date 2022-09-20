@@ -1,0 +1,124 @@
+@import "../../colors.scss";
+
+@mixin squareImage($size) {
+  width: $size;
+  height: $size;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.sidenav {
+  padding: 20px;
+  width: 15%;
+  background-color: $primary;
+
+  &-content {
+    display: grid;
+    grid-template: auto / auto;
+
+    .logo-wrapper {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.sidenav-items {
+  display: grid;
+  grid-template: 1fr / auto;
+  row-gap: 0.3rem;
+
+  button,
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(0 0 0 / 0.2);
+    }
+
+    &.active {
+      background-color: rgba(0 0 0 / 0.3);
+    }
+
+    .sidenav-item-icon {
+      margin-right: 10px;
+      width: 25px;
+    }
+  }
+
+  .logout-btn {
+    margin-top: 50px;
+  }
+}
+
+.top-actionbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 20px 30px;
+  border-bottom: 4px solid $primary;
+
+  .search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      border: 0;
+      padding: 10px;
+      outline: 0;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    // .small-pic {
+    //   @include small_pic(20px);
+    // }
+  }
+
+  .other-controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.small-pic {
+  @include squareImage(30px);
+}
+
+.profile-pic {
+  margin-left: 10px;
+
+  @include squareImage(30px);
+
+  img {
+    border-radius: 100px;
+  }
+}
+
+.outlet-padding {
+  padding: $outlet-padding;
+}

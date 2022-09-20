@@ -1,0 +1,62 @@
+<section>
+  <h2>Edit Service</h2>
+
+  <form #serviceForm="ngForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input
+          [(ngModel)]="formData.title"
+          name="title"
+          type="text"
+          placeholder="Enter a title here"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input
+          [(ngModel)]="formData.price"
+          name="price"
+          type="number"
+          placeholder="10000"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea
+          [(ngModel)]="formData.description"
+          name="description"
+          type="text"
+          placeholder="Enter a description"
+          matInput
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-span-2 w-full">
+      <mat-form-field class="w-full" appearance="outline">
+        <mat-label>Image</mat-label>
+        <input
+          [(ngModel)]="formData.image"
+          name="image"
+          type="text"
+          placeholder="Enter a image url"
+          matInput
+        />
+      </mat-form-field>
+    </div>
+    <button
+      class="col-span-2 w-full"
+      mat-stroked-button
+      type="submit"
+      color="primary"
+    >
+      Edit Service
+    </button>
+  </form>
+</section>

@@ -1,16 +1,16 @@
-<div class="hide-foot" [ngClass]="footerRoute('/register') || footerRoute('/login') ? 'hide' : 'show'">
+<div class="hide-foot" [ngClass]="targetRoute('/register') || targetRoute('/login') || targetRoute('/admin')  ? 'hide' : 'show'">
   <div class="nav">
     <div class="nav-general">
       <div class="logo">
-        <img src="/assets/images/trinity-logo-mod.png" alt="">
+        <img routerLink="/" src="/assets/images/trinity-logo-mod.png" alt="">
       </div>
 
       <div class="nav-content">
-        <a href=""><span>About us</span></a>
-        <a href=""><span>Services</span></a>
-        <a href=""><span>Supplies</span></a>
-        <a href=""><span>Plumbers</span></a>
-        <a href=""><span>Contact us</span></a>
+        <a href="#about"><span>About us</span></a>
+        <a href="#services"><span>Services</span></a>
+        <a href="#supplies"><span>Supplies</span></a>
+        <a href="#plumbers"><span>Plumbers</span></a>
+        <a href="#contact"><span>Contact us</span></a>
       </div>
       <div class="nav-register">
         <span [matMenuTriggerFor]="menu3"><img src="/assets/images/user.png" alt="login">Trinity</span>
@@ -23,56 +23,64 @@
             <a><span>Earning Points</span></a>
           </div>
           <div class="register-btn">
-            <button [routerLink]="['/register']">Register</button>
+            <button [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/register']">Register</button>
 
-            <a *ngIf="!authenticated" [routerLink]="['/login']"><span>Login<mat-icon>arrow_right</mat-icon>
+            <a [ngStyle]="{'cursor': 'pointer'}" *ngIf="!authenticated" [routerLink]="['/login']"><span>Login<mat-icon>arrow_right</mat-icon>
               </span></a>
             <span *ngIf="authenticated">
               <a [ngStyle]="{'cursor': 'pointer'}" (click)="logOut()"><span>Log Out</span></a>
             </span>
           </div>
         </mat-menu>
-        <span [routerLink]="['/chart']"><img src="/assets/images/cart.png" alt="login">Cart</span>
+        <span [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/cart']"><img src="/assets/images/cart.png" alt="login">Cart</span>
       </div>
     </div>
     <div class="moto">
       <div class="moto-heading">
         <h1>Ouality is</h1>
         <h2>Our Specialty</h2>
-
       </div>
-
 
       <div class="sign">
         <div class="sign-image">
           <img src="/assets/images/user2.png" alt="">
         </div>
-        <div [routerLink]="['/register']" class="sign-content">
+        <div [ngStyle]="{'cursor': 'pointer'}" [routerLink]="['/register']" class="sign-content">
           <span>Sign in/Sign up</span>
           <span class="bor">Free Trial for first time</span>
         </div>
-
-        <div class="contact">
-          <div class="contact-image">
-            <img src="/assets/images/phone.png" alt="">
-          </div>
-          <div class="contact-content">
-            <span>Call us Today</span>
-            <span class="bor">876-842-7851</span>
-          </div>
-        </div>
-
-        <div class="location">
-          <div class="location-image">
-            <img src="/assets/images/location.png" alt="">
-          </div>
-          <div class="location-content">
-            <span>Find us at</span>
-            <span class="bor">23 windows Ave</span>
-          </div>
-        </div>
-
       </div>
 
+      <div class="contact">
+        <div class="contact-image">
+          <img src="/assets/images/phone.png" alt="">
+        </div>
+        <div class="contact-content">
+          <span>Call us Today</span>
+          <span class="bor">876-842-7851</span>
+        </div>
+      </div>
+
+      <div class="clock">
+        <div class="clock-image">
+          <img src="/assets/images/clock2.png" alt="" />
+        </div>
+        <div class="clock-content">
+          <span>Opening Hours</span>
+          <label class="bor">Mon-Sat 8:00-19:00</label>
+        </div>
+      </div>
+
+      <div class="location">
+        <div class="location-image">
+          <img src="/assets/images/location.png" alt="">
+        </div>
+        <div class="location-content">
+          <span>Find us at</span>
+          <span class="bor">23 windows Ave</span>
+        </div>
+      </div>
     </div>
+
   </div>
+</div>
